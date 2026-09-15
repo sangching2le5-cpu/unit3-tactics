@@ -1,0 +1,3680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TACTICS FOR LISTENING — Unit 3: Successful Businesses</title>
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --primary:#5b7cfa;
+  --primary-dark:#405fd1;
+  --secondary:#e9efff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --border:#dbe4f0;
+  --success:#2e9d68;
+  --success-bg:#eaf8f0;
+  --danger:#d9534f;
+  --danger-bg:#fff0f0;
+  --warning:#d99100;
+  --warning-bg:#fff8df;
+  --shadow:0 8px 24px rgba(30,41,59,.08);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{
+  min-height:100vh;
+  display:flex;
+}
+.sidebar{
+  width:270px;
+  position:fixed;
+  inset:0 auto 0 0;
+  background:#fff;
+  border-right:1px solid var(--border);
+  padding:22px 16px;
+  overflow-y:auto;
+  z-index:20;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:8px 10px 22px;
+}
+.brand-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:var(--secondary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+.brand h1{
+  margin:0;
+  font-size:16px;
+  line-height:1.3;
+}
+.brand p{
+  margin:4px 0 0;
+  font-size:12px;
+  color:var(--muted);
+}
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.nav-btn{
+  border:0;
+  background:transparent;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:11px 12px;
+  border-radius:12px;
+  color:var(--text);
+  text-align:left;
+  transition:.2s;
+}
+.nav-btn:hover{background:#f4f7ff}
+.nav-btn.active{
+  background:var(--secondary);
+  color:var(--primary-dark);
+  font-weight:700;
+}
+.nav-icon{width:22px;text-align:center}
+.main{
+  margin-left:270px;
+  width:calc(100% - 270px);
+  min-height:100vh;
+}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  padding:18px 30px;
+  background:rgba(244,247,251,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(219,228,240,.8);
+}
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.page-title{
+  margin:0;
+  font-size:26px;
+}
+.page-subtitle{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+.mobile-menu{
+  display:none;
+  border:0;
+  background:#fff;
+  width:42px;height:42px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.container{
+  max-width:1500px;
+  margin:0 auto;
+  padding:28px 30px 60px;
+}
+.section{display:none}
+.section.active{display:block}
+.hero{
+  background:linear-gradient(135deg,#eaf0ff 0%,#f8fbff 100%);
+  border:1px solid #dbe5ff;
+  border-radius:24px;
+  padding:28px;
+  margin-bottom:24px;
+}
+.hero h2{
+  margin:0 0 10px;
+  font-size:30px;
+}
+.hero p{
+  margin:0;
+  max-width:860px;
+  color:#526174;
+  line-height:1.65;
+}
+.grid{
+  display:grid;
+  gap:18px;
+}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.card h3{
+  margin:0 0 12px;
+  font-size:18px;
+}
+.card h4{
+  margin:18px 0 8px;
+  font-size:15px;
+}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.stat{
+  font-size:30px;
+  font-weight:800;
+  margin-top:5px;
+}
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+}
+.btn{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  padding:10px 15px;
+  border-radius:12px;
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(30,41,59,.08)}
+.btn.primary{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+.btn.primary:hover{background:var(--primary-dark)}
+.btn.success{
+  background:var(--success);
+  border-color:var(--success);
+  color:#fff;
+}
+.btn.danger{
+  background:#fff;
+  border-color:#efb0ad;
+  color:var(--danger);
+}
+.btn.warning{
+  background:var(--warning-bg);
+  border-color:#f0d287;
+  color:#875f00;
+}
+.btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:16px;
+}
+.progress{
+  width:100%;
+  height:10px;
+  background:#eef2f7;
+  border-radius:99px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;
+  background:var(--primary);
+  width:0;
+  transition:.25s;
+}
+.activity-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.activity-row{
+  display:grid;
+  grid-template-columns:180px 1fr 65px;
+  align-items:center;
+  gap:12px;
+}
+.activity-name{font-size:14px;font-weight:600}
+.activity-percent{
+  text-align:right;
+  font-size:13px;
+  font-weight:700;
+}
+.audio-box{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:#f7f9fc;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  margin-bottom:18px;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:18px;
+}
+.section-head h2{
+  margin:0 0 6px;
+  font-size:25px;
+}
+.section-head p{
+  margin:0;
+  color:var(--muted);
+}
+.instructions{
+  background:#f8fbff;
+  border-left:4px solid var(--primary);
+  padding:13px 15px;
+  border-radius:10px;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+.quiz-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.quiz-item{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+}
+.quiz-question{
+  font-weight:700;
+  margin-bottom:13px;
+  line-height:1.55;
+}
+.option-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  border:1px solid var(--border);
+  padding:11px 12px;
+  border-radius:12px;
+  background:#fff;
+  transition:.15s;
+}
+.option:hover{background:#f8fbff}
+.option.correct{
+  background:var(--success-bg);
+  border-color:#93d2b2;
+}
+.option.incorrect{
+  background:var(--danger-bg);
+  border-color:#efb0ad;
+}
+.option input{margin-top:3px}
+.feedback{
+  margin-top:12px;
+  padding:11px 12px;
+  border-radius:10px;
+  display:none;
+  line-height:1.5;
+}
+.feedback.show{display:block}
+.feedback.correct{background:var(--success-bg);color:#246748}
+.feedback.incorrect{background:var(--danger-bg);color:#a33f3b}
+.evidence{
+  display:none;
+  margin-top:10px;
+  padding:11px 12px;
+  background:#f7f9fc;
+  border-radius:10px;
+  color:#526174;
+  font-size:13px;
+  line-height:1.5;
+}
+.evidence.show{display:block}
+.quiz-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:13px;
+}
+.quiz-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+.score-badge{
+  padding:8px 12px;
+  background:var(--secondary);
+  color:var(--primary-dark);
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+}
+.rank-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.rank-col{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+}
+.rank-col h3{
+  margin:0 0 12px;
+  font-size:17px;
+}
+.rank-items{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.rank-item{
+  display:grid;
+  grid-template-columns:32px 1fr auto;
+  align-items:center;
+  gap:8px;
+  padding:10px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+.rank-num{
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--secondary);
+  color:var(--primary-dark);
+  font-weight:700;
+}
+.rank-controls{
+  display:flex;
+  gap:5px;
+}
+.icon-btn{
+  width:30px;
+  height:30px;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:8px;
+}
+.small-note{
+  padding:10px 12px;
+  background:#f8fafc;
+  border-radius:10px;
+  color:var(--muted);
+  font-size:13px;
+}
+.script-toggle{
+  margin-top:16px;
+}
+.script{
+  display:none;
+  margin-top:12px;
+  background:#fbfcfe;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  white-space:pre-wrap;
+  line-height:1.7;
+  font-size:14px;
+}
+.script.show{display:block}
+.matching-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.match-column{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.match-btn{
+  text-align:left;
+  border:1px solid var(--border);
+  background:#fff;
+  padding:12px 14px;
+  border-radius:12px;
+}
+.match-btn.selected{border-color:var(--primary);background:var(--secondary)}
+.match-btn.matched{background:var(--success-bg);border-color:#93d2b2}
+.match-status{
+  margin-top:15px;
+  font-size:14px;
+  color:var(--muted);
+}
+.tag-sentence{
+  margin:12px 0;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#fff;
+  line-height:2;
+}
+.tag-option,.stress-word{
+  display:inline-block;
+  margin-left:6px;
+  margin-bottom:3px;
+  padding:3px 8px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  color:var(--primary-dark);
+}
+.tag-option.selected,.stress-word.selected{
+  background:var(--secondary);
+  border-color:var(--primary);
+}
+.tag-option.correct,.stress-word.correct{
+  background:var(--success-bg);
+  border-color:#93d2b2;
+}
+.tag-option.incorrect,.stress-word.incorrect{
+  background:var(--danger-bg);
+  border-color:#efb0ad;
+}
+.stress-line{
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  margin-bottom:10px;
+  line-height:2.2;
+}
+.stress-word{
+  margin-left:0;
+  margin-right:5px;
+  cursor:pointer;
+}
+.dialogue{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.dialogue-line{
+  line-height:1.75;
+}
+.blank-input{
+  min-width:130px;
+  max-width:240px;
+  padding:7px 9px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  outline:none;
+}
+.blank-input:focus{border-color:var(--primary)}
+.blank-input.correct{border-color:#79c49e;background:var(--success-bg)}
+.blank-input.incorrect{border-color:#e39b97;background:var(--danger-bg)}
+.result-box{
+  display:none;
+  padding:16px;
+  border-radius:14px;
+  margin-top:16px;
+}
+.result-box.show{display:block}
+.result-box.success{background:var(--success-bg);color:#246748}
+.result-box.warning{background:var(--warning-bg);color:#875f00}
+.vocab-tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.vocab-tab{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:9px 13px;
+  border-radius:11px;
+}
+.vocab-tab.active{
+  background:var(--secondary);
+  color:var(--primary-dark);
+  border-color:#bbcbff;
+  font-weight:700;
+}
+.flashcard{
+  min-height:270px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:linear-gradient(135deg,#fbfdff,#f1f5ff);
+}
+.flashcard .word{
+  font-size:34px;
+  font-weight:800;
+}
+.flashcard .ipa{
+  margin-top:8px;
+  color:var(--muted);
+}
+.flashcard .meaning{
+  font-size:22px;
+  font-weight:700;
+}
+.flashcard .example{
+  margin-top:14px;
+  color:#526174;
+  line-height:1.6;
+}
+.vocab-meta{
+  margin-top:14px;
+  color:var(--muted);
+  font-size:13px;
+}
+.matching-vocab{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.review-item{
+  border:1px solid #efc0be;
+  background:#fffafa;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:10px;
+}
+.review-item .meta{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.review-item .correct-text{
+  color:#24704d;
+  margin-top:7px;
+}
+.test-question{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:14px;
+}
+.test-number{
+  font-size:12px;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:6px;
+}
+.timer{
+  font-size:22px;
+  font-weight:800;
+  color:var(--primary-dark);
+}
+.timer.warning{color:var(--danger)}
+.test-progress{
+  margin:12px 0 18px;
+}
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:100;
+  background:#1e293b;
+  color:#fff;
+  padding:12px 15px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:.22s;
+  max-width:360px;
+  font-size:13px;
+}
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.modal-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-overlay.show{display:flex}
+.modal{
+  width:min(480px,100%);
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 30px 60px rgba(15,23,42,.25);
+  padding:22px;
+}
+.modal h3{margin:0 0 8px}
+.modal p{margin:0;color:var(--muted);line-height:1.6}
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:9px;
+  margin-top:18px;
+}
+.empty{
+  text-align:center;
+  padding:35px 15px;
+  color:var(--muted);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#eef2f7;
+  color:#526174;
+  font-size:12px;
+}
+.badge.success{
+  background:var(--success-bg);
+  color:#246748;
+}
+.badge.primary{
+  background:var(--secondary);
+  color:var(--primary-dark);
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+.table th,.table td{
+  padding:11px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  vertical-align:top;
+  font-size:13px;
+}
+.table th{color:var(--muted)}
+.conv-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+}
+.conv-topic{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+.conv-prompt{
+  line-height:1.7;
+  color:#526174;
+}
+.timer-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.mobile-scroll{
+  overflow-x:auto;
+}
+@media (max-width:1050px){
+  .sidebar{width:230px}
+  .main{margin-left:230px;width:calc(100% - 230px)}
+  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rank-grid,.grid-3{grid-template-columns:1fr}
+}
+@media (max-width:800px){
+  .sidebar{
+    transform:translateX(-100%);
+    transition:.25s;
+    width:280px;
+    box-shadow:20px 0 40px rgba(15,23,42,.12);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0;width:100%}
+  .mobile-menu{display:block}
+  .topbar{padding:14px 18px}
+  .container{padding:20px 18px 50px}
+  .grid-2,.grid-3,.grid-4,.matching-wrap,.matching-vocab{grid-template-columns:1fr}
+  .activity-row{grid-template-columns:1fr}
+  .activity-percent{text-align:left}
+  .section-head{flex-direction:column}
+}
+@media (max-width:540px){
+  .hero h2{font-size:24px}
+  .page-title{font-size:21px}
+  .card{padding:16px}
+  .activity-row{gap:6px}
+  .rank-item{grid-template-columns:30px 1fr}
+  .rank-controls{grid-column:2}
+  .blank-input{max-width:100%;width:100%}
+  .dialogue-line{display:flex;flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🎧</div>
+      <div>
+        <h1>TACTICS FOR LISTENING</h1>
+        <p>3rd Edition • Unit 3</p>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button class="mobile-menu" id="mobileMenu">☰</button>
+          <div>
+            <h1 class="page-title" id="pageTitle">Unit 3: Successful Businesses</h1>
+            <p class="page-subtitle" id="pageSubtitle">Interactive Listening & Practice</p>
+          </div>
+        </div>
+        <button class="btn danger" id="resetAllBtn">Reset Progress</button>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <!-- HOME -->
+      <section class="section active" id="section-home">
+        <div class="hero">
+          <h2>Successful Businesses</h2>
+          <p>
+            Interactive practice for TACTICS FOR LISTENING 3rd Edition, Unit 3.
+            Complete the activities, review mistakes, practise vocabulary, and take the final test.
+            Audio is not embedded in this app. Listen to your textbook/audio file externally.
+          </p>
+          <div class="btn-group">
+            <button class="btn primary" id="continueBtn">Continue Learning</button>
+            <button class="btn" id="goTestBtn">Take Test Yourself</button>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card">
+            <div class="stat" id="statCompleted">0</div>
+            <div class="stat-label">Activities completed</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="statAverage">0%</div>
+            <div class="stat-label">Average score</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="statMistakes">0</div>
+            <div class="stat-label">Saved mistakes</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="statVocabulary">0</div>
+            <div class="stat-label">Vocabulary mastered</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Learning Progress</h3>
+          <div class="progress"><div class="progress-bar" id="homeProgress"></div></div>
+          <div class="small muted" style="margin-top:8px" id="homeProgressText">0% completed</div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Unit Map</h3>
+          <div class="activity-list" id="homeActivityList"></div>
+        </div>
+      </section>
+
+      <!-- GETTING READY -->
+      <section class="section" id="section-gettingready">
+        <div class="section-head">
+          <div>
+            <h2>Getting Ready</h2>
+            <p>Rank each factor from 1 = most important to 5 = least important.</p>
+          </div>
+          <span class="badge primary">Personal Response</span>
+        </div>
+
+        <div class="instructions">
+          What do you think makes a business successful? Number the items in each list from
+          <strong>1 (the most important)</strong> to <strong>5 (the least important)</strong>.
+          Compare your answers with a partner.
+        </div>
+
+        <div class="rank-grid" id="rankGrid"></div>
+
+        <div class="btn-group">
+          <button class="btn primary" id="saveRankingsBtn">Save Rankings</button>
+          <button class="btn" id="resetRankingsBtn">Reset Rankings</button>
+        </div>
+
+        <div class="result-box success" id="rankingResult"></div>
+      </section>
+
+      <!-- LISTENING 1 -->
+      <section class="section" id="section-listening1">
+        <div class="section-head">
+          <div>
+            <h2>Listening 1</h2>
+            <p>What do people dislike about each place?</p>
+          </div>
+          <span class="badge primary">CD 1-12</span>
+        </div>
+
+        <div class="audio-box">
+          <div>
+            <strong>🎧 Listen to CD 1-12 externally</strong>
+            <div class="small muted">No audio files are embedded in this web app.</div>
+          </div>
+          <button class="btn audio-remind">Audio Reminder</button>
+        </div>
+
+        <div class="instructions">
+          People are talking about different businesses. What do they dislike about each place?
+          Listen and circle the correct letter.
+        </div>
+
+        <div id="quiz-listening1"></div>
+      </section>
+
+      <!-- LISTENING 2 -->
+      <section class="section" id="section-listening2">
+        <div class="section-head">
+          <div>
+            <h2>Listening 2</h2>
+            <p>Match each conversation and identify what people like.</p>
+          </div>
+          <span class="badge primary">CD 1-13</span>
+        </div>
+
+        <div class="audio-box">
+          <div>
+            <strong>🎧 Listen to CD 1-13 externally</strong>
+            <div class="small muted">Use your textbook/audio source.</div>
+          </div>
+          <button class="btn audio-remind">Audio Reminder</button>
+        </div>
+
+        <div class="card">
+          <h3>Task 1 — Match the conversation to the business</h3>
+          <div id="listening2task1"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Task 2 — What do people like?</h3>
+          <div id="listening2task2"></div>
+        </div>
+      </section>
+
+      <!-- LISTENING 3 -->
+      <section class="section" id="section-listening3">
+        <div class="section-head">
+          <div>
+            <h2>Listening 3</h2>
+            <p>Identify the most important success factor.</p>
+          </div>
+          <span class="badge primary">CD 1-14</span>
+        </div>
+
+        <div class="audio-box">
+          <div>
+            <strong>🎧 Listen to CD 1-14 externally</strong>
+            <div class="small muted">Use your textbook/audio source.</div>
+          </div>
+          <button class="btn audio-remind">Audio Reminder</button>
+        </div>
+
+        <div class="card">
+          <h3>Task 1</h3>
+          <div id="quiz-listening3task1"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Task 2</h3>
+          <div id="quiz-listening3task2"></div>
+        </div>
+      </section>
+
+      <!-- PRONUNCIATION -->
+      <section class="section" id="section-pronunciation">
+        <div class="section-head">
+          <div>
+            <h2>Pronunciation</h2>
+            <p>Tag questions and word stress.</p>
+          </div>
+          <span class="badge primary">CD 1-10 • CD 1-15</span>
+        </div>
+
+        <div class="audio-box">
+          <div>
+            <strong>🎧 Listen to CD 1-10 and CD 1-15 externally</strong>
+            <div class="small muted">Use the textbook audio to hear the pronunciation.</div>
+          </div>
+          <button class="btn audio-remind">Audio Reminder</button>
+        </div>
+
+        <div class="card">
+          <h3>Part A — Tag Questions</h3>
+          <p class="muted small">Click the correct tag question.</p>
+          <div id="tagPractice"></div>
+          <div class="btn-group">
+            <button class="btn primary" id="checkTagsBtn">Check Tags</button>
+            <button class="btn" id="resetTagsBtn">Reset</button>
+          </div>
+          <div class="result-box" id="tagResult"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Part B — Word Stress</h3>
+          <p class="muted small">Click the words/chunks that receive strong stress.</p>
+          <div id="stressPractice"></div>
+          <div class="btn-group">
+            <button class="btn primary" id="checkStressBtn">Check Stress</button>
+            <button class="btn" id="resetStressBtn">Reset</button>
+          </div>
+          <div class="result-box" id="stressResult"></div>
+        </div>
+      </section>
+
+      <!-- DICTATION -->
+      <section class="section" id="section-dictation">
+        <div class="section-head">
+          <div>
+            <h2>Dictation</h2>
+            <p>Listen and complete the missing words.</p>
+          </div>
+          <span class="badge primary">CD 1-11 • CD 1-16</span>
+        </div>
+
+        <div class="audio-box">
+          <div>
+            <strong>🎧 Listen to CD 1-11 and CD 1-16 externally</strong>
+            <div class="small muted">Type the missing words exactly or nearly exactly.</div>
+          </div>
+          <button class="btn audio-remind">Audio Reminder</button>
+        </div>
+
+        <div class="card">
+          <h3>Dictation 1 — CD 1-11</h3>
+          <div id="dict1"></div>
+          <div class="btn-group">
+            <button class="btn primary" id="checkDict1Btn">Check Dictation 1</button>
+            <button class="btn" id="resetDict1Btn">Reset</button>
+          </div>
+          <div class="result-box" id="dict1Result"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Dictation 2 — CD 1-16</h3>
+          <div id="dict2"></div>
+          <div class="btn-group">
+            <button class="btn primary" id="checkDict2Btn">Check Dictation 2</button>
+            <button class="btn" id="resetDict2Btn">Reset</button>
+          </div>
+          <div class="result-box" id="dict2Result"></div>
+        </div>
+      </section>
+
+      <!-- CONVERSATION -->
+      <section class="section" id="section-conversation">
+        <div class="section-head">
+          <div>
+            <h2>Conversation</h2>
+            <p>Talk about a store you go to a lot.</p>
+          </div>
+          <span class="badge primary">Speaking Practice</span>
+        </div>
+
+        <div class="conv-card">
+          <div class="badge primary">Prompt</div>
+          <div class="conv-topic" id="convBusiness">Clothing Store</div>
+          <div class="conv-prompt" id="convPrompt"></div>
+
+          <div class="grid grid-2" style="margin-top:18px">
+            <div class="card" style="box-shadow:none;margin:0">
+              <h3>Things you like</h3>
+              <div id="convLikes"></div>
+            </div>
+            <div class="card" style="box-shadow:none;margin:0">
+              <h3>Things you don't like</h3>
+              <div id="convDislikes"></div>
+            </div>
+          </div>
+
+          <div class="small-note" style="margin-top:18px">
+            Sentence starters: <strong>I like...</strong> • <strong>One thing I like is...</strong> •
+            <strong>I don't like...</strong> • <strong>The main problem is...</strong>
+          </div>
+
+          <div class="timer-box">
+            <div class="timer" id="convTimer">01:00</div>
+            <button class="btn primary" id="startConvBtn">Start 60s</button>
+            <button class="btn" id="startConv30Btn">Start 30s</button>
+            <button class="btn" id="stopConvBtn">Stop</button>
+            <button class="btn" id="newConvBtn">New Business</button>
+            <button class="btn success" id="markConvBtn">Mark as Practised</button>
+          </div>
+
+          <div class="result-box success" id="convResult"></div>
+        </div>
+      </section>
+
+      <!-- VOCABULARY -->
+      <section class="section" id="section-vocabulary">
+        <div class="section-head">
+          <div>
+            <h2>Vocabulary</h2>
+            <p>Unit 3 vocabulary practice and review.</p>
+          </div>
+          <span class="badge primary" id="vocabMasteredBadge">0 mastered</span>
+        </div>
+
+        <div class="vocab-tabs" id="vocabTabs"></div>
+
+        <div id="vocabContent"></div>
+      </section>
+
+      <!-- REVIEW -->
+      <section class="section" id="section-review">
+        <div class="section-head">
+          <div>
+            <h2>Review Mistakes</h2>
+            <p>Review items you answered incorrectly.</p>
+          </div>
+          <span class="badge" id="mistakeCountBadge">0 mistakes</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn primary" id="practiceMistakesBtn">Practise Mistakes</button>
+          <button class="btn danger" id="clearMistakesBtn">Clear All Mistakes</button>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="reviewContent"></div>
+
+        <div class="card" style="margin-top:18px;display:none" id="mistakePracticeCard">
+          <h3>Mistake Practice</h3>
+          <div id="mistakePractice"></div>
+        </div>
+      </section>
+
+      <!-- TEST -->
+      <section class="section" id="section-test">
+        <div class="section-head">
+          <div>
+            <h2>Test Yourself</h2>
+            <p>20 mixed questions • 30-minute timer • feedback after submission.</p>
+          </div>
+          <div class="timer" id="testTimer">30:00</div>
+        </div>
+
+        <div class="test-progress">
+          <div class="progress"><div class="progress-bar" id="testProgressBar"></div></div>
+          <div class="small muted" style="margin-top:7px" id="testProgressText">0 / 20 answered</div>
+        </div>
+
+        <div id="testIntro" class="card">
+          <h3>Ready?</h3>
+          <p class="muted">
+            The test combines listening, dictation, pronunciation, and vocabulary questions.
+            You will not see the correct answers until you submit the whole test.
+          </p>
+          <button class="btn primary" id="startTestBtn">Start Test</button>
+        </div>
+
+        <div id="testArea" style="display:none"></div>
+        <div id="testResult" style="display:none"></div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="section" id="section-progress">
+        <div class="section-head">
+          <div>
+            <h2>Progress</h2>
+            <p>Track your performance across Unit 3.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card">
+            <div class="stat" id="progressCompleted">0</div>
+            <div class="stat-label">Completed activities</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="progressAverage">0%</div>
+            <div class="stat-label">Average score</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="progressBestTest">—</div>
+            <div class="stat-label">Best test score</div>
+          </div>
+          <div class="card">
+            <div class="stat" id="progressConv">0</div>
+            <div class="stat-label">Speaking practices</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Activity Progress</h3>
+          <div class="activity-list" id="progressList"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Recent Test History</h3>
+          <div class="mobile-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Score</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody id="testHistoryBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Confirm</h3>
+    <p id="modalText">Are you sure?</p>
+    <div class="modal-actions">
+      <button class="btn" id="modalCancel">Cancel</button>
+      <button class="btn danger" id="modalConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* =========================================================
+   DATA
+========================================================= */
+
+const STORAGE_KEY = 'tactics_unit3_successful_businesses_v1';
+
+const NAV_ITEMS = [
+  ['home','🏠','Home'],
+  ['gettingready','🎯','Getting Ready'],
+  ['listening1','🎧','Listening 1'],
+  ['listening2','🎧','Listening 2'],
+  ['listening3','🎧','Listening 3'],
+  ['pronunciation','🗣️','Pronunciation'],
+  ['dictation','✍️','Dictation'],
+  ['conversation','💬','Conversation'],
+  ['vocabulary','📚','Vocabulary'],
+  ['review','🔁','Review Mistakes'],
+  ['test','📝','Test Yourself'],
+  ['progress','📊','Progress']
+];
+
+const ACTIVITY_LABELS = {
+  gettingready:'Getting Ready',
+  listening1:'Listening 1',
+  listening2:'Listening 2',
+  listening3:'Listening 3',
+  pronunciation:'Pronunciation',
+  dictation:'Dictation',
+  conversation:'Conversation',
+  vocabulary:'Vocabulary',
+  test:'Test Yourself'
+};
+
+const listening1Data = [
+  {
+    id:'l1-1',
+    question:'The Indian restaurant has good food, but what is the main problem?',
+    options:['Popularity','Service','Location','Prices'],
+    answer:1,
+    evidence:'The food is good, but it took too long to arrive. The problem is terrible service.'
+  },
+  {
+    id:'l1-2',
+    question:'What do people dislike about the campus bookstore?',
+    options:['Location','Prices','Staff','Quality'],
+    answer:1,
+    evidence:'The bookstore is convenient, but the mall is about 10% cheaper and online prices are about 20% cheaper.'
+  },
+  {
+    id:'l1-3',
+    question:'What do people dislike about the Metropolitan Health Club?',
+    options:['Popularity','Location','Facilities','Prices'],
+    answer:0,
+    evidence:'The club is cheap, but it is too popular. It is often full and people have to wait for machines.'
+  },
+  {
+    id:'l1-4',
+    question:'What is the problem with the Honolulu hotel?',
+    options:['Quality','Location','Service','Popularity'],
+    answer:1,
+    evidence:'The staff are nice, but the hotel is too far from the restaurants and clubs.'
+  },
+  {
+    id:'l1-5',
+    question:'What is the main problem at Little Roma?',
+    options:['Location','Service','Prices','Atmosphere'],
+    answer:1,
+    evidence:'The prices are cheap, but the waiters are slow and unfriendly.'
+  },
+  {
+    id:'l1-6',
+    question:'What is the main problem at Brenda’s Boutique?',
+    options:['Service','Location','Quality','Popularity'],
+    answer:0,
+    evidence:'The clothes are good, but the service is terrible and the workers are rude.'
+  }
+];
+
+const listening2Task1 = [
+  {id:'l2t1-1',conversation:'Conversation 1',answer:'D — Restaurant'},
+  {id:'l2t1-2',conversation:'Conversation 2',answer:'B — Computer / language school'},
+  {id:'l2t1-3',conversation:'Conversation 3',answer:'A — Hair salon'},
+  {id:'l2t1-4',conversation:'Conversation 4',answer:'F — Hotel'},
+  {id:'l2t1-5',conversation:'Conversation 5',answer:'C — Car repair garage'},
+  {id:'l2t1-6',conversation:'Conversation 6',answer:'E — Clothing store'}
+];
+
+const l2Businesses = [
+  'A — Hair salon',
+  'B — Computer / language school',
+  'C — Car repair garage',
+  'D — Restaurant',
+  'E — Clothing store',
+  'F — Hotel'
+];
+
+const listening2Task2 = [
+  {
+    id:'l2t2-1',
+    question:'What do they like about the restaurant?',
+    options:['Prices','Staff','Atmosphere','Quality'],
+    answer:2,
+    evidence:'They mention the interesting menu, cool atmosphere, and comfortable sofas.'
+  },
+  {
+    id:'l2t2-2',
+    question:'What do they like about the language school?',
+    options:['Staff','Facilities','Prices','Popularity'],
+    answer:1,
+    evidence:'The facilities are very good, including a computer lab and free Wi-Fi.'
+  },
+  {
+    id:'l2t2-3',
+    question:'What do they like about the hair salon?',
+    options:['Staff','Location','Prices','Displays'],
+    answer:0,
+    evidence:'They say the stylists are good and the staff create a home-like atmosphere.'
+  },
+  {
+    id:'l2t2-4',
+    question:'What do they like about the hotel?',
+    options:['Atmosphere','Prices','Location','Staff'],
+    answer:0,
+    evidence:'They describe the hotel as glamorous and exciting, with bright lights and beautiful rooms.'
+  },
+  {
+    id:'l2t2-5',
+    question:'What do they like about the car repair garage?',
+    options:['Quality','Prices','Service','Convenience'],
+    answer:1,
+    evidence:'The mechanics are great and the prices are about half those of other places.'
+  },
+  {
+    id:'l2t2-6',
+    question:'What do they like about the clothing store?',
+    options:['Atmosphere','Quality','Location','Popularity'],
+    answer:1,
+    evidence:'The clothes look great, fit well, and are good quality.'
+  }
+];
+
+const listening3Task1 = [
+  {
+    id:'l3t1-1',
+    question:'For the restaurant owner, what is most important?',
+    options:['Service','Food','Prices','Location'],
+    answer:0,
+    evidence:'The owner says service is the most important thing. Food is also important.'
+  },
+  {
+    id:'l3t1-2',
+    question:'For the travel agency, what is most important?',
+    options:['Convenience','A good value','Quality','Speed'],
+    answer:1,
+    evidence:'The travel agent says the most important thing is offering a good value. Convenience is also important.'
+  },
+  {
+    id:'l3t1-3',
+    question:'For the home builder, what is most important?',
+    options:['Speed','Quality','Prices','Service'],
+    answer:0,
+    evidence:'The home builder says speed is the most important factor, while quality also matters.'
+  },
+  {
+    id:'l3t1-4',
+    question:'For the clothing retailer, what is most important?',
+    options:['Displays','Prices','Location','Staff'],
+    answer:0,
+    evidence:'The clothing retailer says displays are the most important thing. Good prices are also important.'
+  }
+];
+
+const listening3Task2 = [
+  {
+    id:'l3t2-1',
+    question:'The restaurant owner says that ______ is also important.',
+    options:['convenience','food','prices','quality'],
+    answer:1,
+    evidence:'The restaurant owner says service is most important and food is also important.'
+  },
+  {
+    id:'l3t2-2',
+    question:'The travel agent says ______ is also important.',
+    options:['convenience','food','prices','quality'],
+    answer:0,
+    evidence:'The travel agent says good value is most important, and convenience is also important.'
+  },
+  {
+    id:'l3t2-3',
+    question:'The home builder says ______ is also important.',
+    options:['convenience','food','prices','quality'],
+    answer:3,
+    evidence:'The home builder says speed is most important, but quality also matters.'
+  },
+  {
+    id:'l3t2-4',
+    question:'The clothing retailer says ______ is also important.',
+    options:['convenience','food','prices','quality'],
+    answer:2,
+    evidence:'The clothing retailer says displays are most important, with good prices also being important.'
+  }
+];
+
+const tagData = [
+  {text:'You made a reservation,', answer:'didn’t you?'},
+  {text:'She’s in your class,', answer:'isn’t she?'},
+  {text:'He’s driving,', answer:'isn’t he?'},
+  {text:'We’re busy Friday,', answer:'aren’t we?'}
+];
+
+const stressData = [
+  {text:'The food took too long to arrive.', targets:['too','long']},
+  {text:'They were not professional.', targets:['not','professional']},
+  {text:'The prices are really high.', targets:['really','high']},
+  {text:'The waiters were really slow.', targets:['really','slow']},
+  {text:'That hotel is too far from the restaurants and clubs.', targets:['too','far']},
+  {text:'The rooms are not nice.', targets:['not','nice']}
+];
+
+const dict1Data = [
+  {
+    before:'It’s supposed to rain this weekend,',
+    after:'?',
+    answer:'isn’t it?'
+  },
+  {
+    before:'You saw that movie last weekend,',
+    after:'?',
+    answer:'didn’t you?'
+  },
+  {
+    before:"But you don't like action movies,",
+    after:'?',
+    answer:'do you?'
+  }
+];
+
+const dict2Data = [
+  {sentence:'I’d like to, but the salespeople there are',answer:'not very professional.'},
+  {sentence:'Yeah, and some of the clothes are nice, but some of them are',answer:'really bad quality.'},
+  {sentence:'I bought a sweater there last winter, and it',answer:'fell apart.'},
+  {sentence:'Also, it',answer:'takes hours to'},
+  {sentence:'Then again, I did get my',answer:'favorite jeans'}
+];
+
+const vocabulary = [
+  {
+    word:'service',pos:'noun',ipa:'/ˈsɜːvɪs/',vi:'dịch vụ',
+    example:'The restaurant has excellent service.'
+  },
+  {
+    word:'atmosphere',pos:'noun',ipa:'/ˈætməsfɪə/',vi:'bầu không khí',
+    example:'I really like the relaxed atmosphere.'
+  },
+  {
+    word:'location',pos:'noun',ipa:'/ləʊˈkeɪʃən/',vi:'vị trí, địa điểm',
+    example:'The hotel has a convenient location.'
+  },
+  {
+    word:'price',pos:'noun',ipa:'/praɪs/',vi:'giá cả',
+    example:'The prices are quite reasonable.'
+  },
+  {
+    word:'facility',pos:'noun',ipa:'/fəˈsɪləti/',vi:'cơ sở vật chất, tiện nghi',
+    example:'The school has excellent facilities.'
+  },
+  {
+    word:'staff',pos:'noun',ipa:'/stɑːf/',vi:'nhân viên',
+    example:'The staff are very friendly.'
+  },
+  {
+    word:'popularity',pos:'noun',ipa:'/ˌpɒpjəˈlærəti/',vi:'mức độ phổ biến',
+    example:'Its popularity makes the gym very crowded.'
+  },
+  {
+    word:'quality',pos:'noun',ipa:'/ˈkwɒləti/',vi:'chất lượng',
+    example:'The clothes are good quality.'
+  },
+  {
+    word:'display',pos:'noun',ipa:'/dɪˈspleɪ/',vi:'màn trưng bày, cách trưng bày',
+    example:'The window displays attract customers.'
+  },
+  {
+    word:'convenience',pos:'noun',ipa:'/kənˈviːniəns/',vi:'sự tiện lợi',
+    example:'Online shopping offers greater convenience.'
+  },
+  {
+    word:'value',pos:'noun',ipa:'/ˈvæljuː/',vi:'giá trị; đáng tiền',
+    example:'This hotel offers good value.'
+  },
+  {
+    word:'speed',pos:'noun',ipa:'/spiːd/',vi:'tốc độ, sự nhanh chóng',
+    example:'Customers care about speed and efficiency.'
+  },
+  {
+    word:'professional',pos:'adjective',ipa:'/prəˈfeʃənəl/',vi:'chuyên nghiệp',
+    example:'The salespeople should be more professional.'
+  },
+  {
+    word:'friendly',pos:'adjective',ipa:'/ˈfrendli/',vi:'thân thiện',
+    example:'The staff are helpful and friendly.'
+  },
+  {
+    word:'rude',pos:'adjective',ipa:'/ruːd/',vi:'thô lỗ',
+    example:'The workers were rude to customers.'
+  },
+  {
+    word:'expensive',pos:'adjective',ipa:'/ɪkˈspensɪv/',vi:'đắt',
+    example:'The restaurant is expensive but popular.'
+  },
+  {
+    word:'cheap',pos:'adjective',ipa:'/tʃiːp/',vi:'rẻ',
+    example:'The club has cheap membership fees.'
+  },
+  {
+    word:'satisfied',pos:'adjective',ipa:'/ˈsætɪsfaɪd/',vi:'hài lòng',
+    example:'Most customers are satisfied with the service.'
+  },
+  {
+    word:'reservation',pos:'noun',ipa:'/ˌrezəˈveɪʃən/',vi:'sự đặt chỗ',
+    example:'I made a reservation for Friday night.'
+  },
+  {
+    word:'customer',pos:'noun',ipa:'/ˈkʌstəmə/',vi:'khách hàng',
+    example:'The store has many regular customers.'
+  },
+  {
+    word:'talented',pos:'adjective',ipa:'/ˈtæləntɪd/',vi:'tài năng',
+    example:'The salon has talented stylists.'
+  },
+  {
+    word:'mechanic',pos:'noun',ipa:'/məˈkænɪk/',vi:'thợ sửa máy, thợ cơ khí',
+    example:'The mechanics fixed my car quickly.'
+  },
+  {
+    word:'repair',pos:'verb/noun',ipa:'/rɪˈpeə/',vi:'sửa chữa; sự sửa chữa',
+    example:'They repair cars at reasonable prices.'
+  },
+  {
+    word:'boutique',pos:'noun',ipa:'/buːˈtiːk/',vi:'cửa hàng thời trang nhỏ',
+    example:'She opened a small fashion boutique.'
+  },
+  {
+    word:'salon',pos:'noun',ipa:'/ˈsælɒn/',vi:'tiệm làm tóc / thẩm mỹ',
+    example:'The salon has a comfortable atmosphere.'
+  },
+  {
+    word:'restaurant',pos:'noun',ipa:'/ˈrestərɒnt/',vi:'nhà hàng',
+    example:'This restaurant serves fresh seafood.'
+  },
+  {
+    word:'staffed',pos:'adjective',ipa:'/stɑːft/',vi:'có nhân viên phục vụ',
+    example:'The shop is well staffed at weekends.'
+  },
+  {
+    word:'glamorous',pos:'adjective',ipa:'/ˈɡlæmərəs/',vi:'quyến rũ, sang trọng',
+    example:'The hotel has a glamorous atmosphere.'
+  },
+  {
+    word:'fresh',pos:'adjective',ipa:'/freʃ/',vi:'tươi',
+    example:'The restaurant uses fresh fish.'
+  },
+  {
+    word:'comfortable',pos:'adjective',ipa:'/ˈkʌmftəbəl/',vi:'thoải mái',
+    example:'The sofas are very comfortable.'
+  }
+];
+
+const convBusinesses = [
+  {
+    name:'Clothing Store',
+    likes:['good quality','many styles and colours','helpful staff','good prices'],
+    dislikes:['poor displays','slow service','high prices','limited sizes']
+  },
+  {
+    name:'Restaurant',
+    likes:['fresh food','friendly staff','comfortable atmosphere','reasonable prices'],
+    dislikes:['slow service','small portions','crowded tables','high prices']
+  },
+  {
+    name:'Hotel',
+    likes:['beautiful rooms','good location','friendly staff','excellent facilities'],
+    dislikes:['expensive rooms','poor location','noisy atmosphere','slow service']
+  },
+  {
+    name:'Hair Salon',
+    likes:['talented stylists','friendly staff','comfortable atmosphere','free coffee'],
+    dislikes:['high prices','long waiting times','limited opening hours','poor parking']
+  },
+  {
+    name:'Computer / Language School',
+    likes:['good facilities','free Wi-Fi','helpful teachers','modern equipment'],
+    dislikes:['high fees','crowded classes','limited courses','poor location']
+  },
+  {
+    name:'Car Repair Garage',
+    likes:['great mechanics','reasonable prices','fast repairs','good quality'],
+    dislikes:['long waiting times','poor communication','limited parking','old equipment']
+  }
+];
+
+const NAV_TITLES = {
+  home:['Unit 3: Successful Businesses','Interactive Listening & Practice'],
+  gettingready:['Getting Ready','Business success factors'],
+  listening1:['Listening 1','What people dislike'],
+  listening2:['Listening 2','What people like'],
+  listening3:['Listening 3','Success factors'],
+  pronunciation:['Pronunciation','Tag questions and word stress'],
+  dictation:['Dictation','Listen and write'],
+  conversation:['Conversation','Speaking practice'],
+  vocabulary:['Vocabulary','Unit 3 vocabulary'],
+  review:['Review Mistakes','Personal error review'],
+  test:['Test Yourself','20 questions • 30 minutes'],
+  progress:['Progress','Your Unit 3 performance']
+};
+
+const DEFAULT_STATE = {
+  scores:{},
+  completed:{},
+  mistakes:[],
+  rankings:null,
+  vocabulary:{
+    mastered:[],
+    correct:0,
+    wrong:0
+  },
+  conversationPractised:0,
+  testHistory:[],
+  lastSection:'home'
+};
+
+let state = loadState();
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+function cloneDefault(){
+  return JSON.parse(JSON.stringify(DEFAULT_STATE));
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return cloneDefault();
+    const parsed = JSON.parse(raw);
+    return deepMerge(cloneDefault(),parsed);
+  }catch(e){
+    console.error('Failed to load state:',e);
+    return cloneDefault();
+  }
+}
+
+function deepMerge(base,extra){
+  if(!extra || typeof extra !== 'object') return base;
+  Object.keys(extra).forEach(key=>{
+    if(
+      extra[key] &&
+      typeof extra[key] === 'object' &&
+      !Array.isArray(extra[key]) &&
+      base[key] &&
+      typeof base[key] === 'object' &&
+      !Array.isArray(base[key])
+    ){
+      base[key]=deepMerge(base[key],extra[key]);
+    }else{
+      base[key]=extra[key];
+    }
+  });
+  return base;
+}
+
+function saveState(){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }catch(e){
+    console.error('Failed to save state:',e);
+  }
+}
+
+function esc(text){
+  return String(text)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+}
+
+function normalize(text){
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[’']/g,"'")
+    .replace(/[?.!,;:"]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function toast(message){
+  const el=document.getElementById('toast');
+  el.textContent=message;
+  el.classList.add('show');
+  clearTimeout(toast.timer);
+  toast.timer=setTimeout(()=>el.classList.remove('show'),2400);
+}
+
+function confirmModal(title,text,callback){
+  const overlay=document.getElementById('modalOverlay');
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalText').textContent=text;
+  overlay.classList.add('show');
+
+  const cancel=document.getElementById('modalCancel');
+  const confirm=document.getElementById('modalConfirm');
+
+  const cleanup=()=>{
+    overlay.classList.remove('show');
+    cancel.onclick=null;
+    confirm.onclick=null;
+  };
+
+  cancel.onclick=cleanup;
+  confirm.onclick=()=>{
+    cleanup();
+    callback();
+  };
+}
+
+function recordMistake(item){
+  const exists = state.mistakes.some(m=>
+    m.id===item.id &&
+    normalize(m.user)===normalize(item.user) &&
+    normalize(m.correct)===normalize(item.correct)
+  );
+  if(!exists) state.mistakes.push(item);
+  saveState();
+}
+
+function removeMistake(id){
+  state.mistakes=state.mistakes.filter(m=>m.id!==id);
+  saveState();
+}
+
+function recordScore(key,score,total){
+  const percent=Math.round((score/total)*100);
+  state.scores[key]=percent;
+  state.completed[key]=true;
+  saveState();
+  updateDashboard();
+}
+
+function markCompleted(key){
+  state.completed[key]=true;
+  saveState();
+  updateDashboard();
+}
+
+function averageScore(){
+  const values=Object.values(state.scores);
+  if(!values.length) return 0;
+  return Math.round(values.reduce((a,b)=>a+b,0)/values.length);
+}
+
+function completedCount(){
+  return Object.keys(ACTIVITY_LABELS).filter(k=>state.completed[k]).length;
+}
+
+function overallCompletion(){
+  return Math.round((completedCount()/Object.keys(ACTIVITY_LABELS).length)*100);
+}
+
+function percentText(v){
+  return `${Math.max(0,Math.min(100,v||0))}%`;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function buildNav(){
+  const nav=document.getElementById('nav');
+  nav.innerHTML=NAV_ITEMS.map(([id,icon,label])=>`
+    <button class="nav-btn ${state.lastSection===id?'active':''}" data-section="${id}">
+      <span class="nav-icon">${icon}</span>
+      <span>${label}</span>
+    </button>
+  `).join('');
+
+  nav.querySelectorAll('.nav-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>navigate(btn.dataset.section));
+  });
+}
+
+function navigate(section){
+  if(!NAV_TITLES[section]) section='home';
+
+  document.querySelectorAll('.section').forEach(el=>el.classList.remove('active'));
+  const target=document.getElementById(`section-${section}`);
+  if(target) target.classList.add('active');
+
+  document.querySelectorAll('.nav-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.dataset.section===section);
+  });
+
+  document.getElementById('pageTitle').textContent=NAV_TITLES[section][0];
+  document.getElementById('pageSubtitle').textContent=NAV_TITLES[section][1];
+
+  state.lastSection=section;
+  saveState();
+
+  const sidebar=document.getElementById('sidebar');
+  sidebar.classList.remove('open');
+
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  if(section==='home') renderHome();
+  if(section==='review') renderReview();
+  if(section==='progress') renderProgress();
+  if(section==='vocabulary') renderVocabulary();
+  if(section==='conversation') renderConversation();
+}
+
+/* =========================================================
+   HOME / DASHBOARD
+========================================================= */
+
+function updateDashboard(){
+  const completed=completedCount();
+  const avg=averageScore();
+  const mistakes=state.mistakes.length;
+  const mastered=state.vocabulary.mastered.length;
+  const overall=overallCompletion();
+
+  document.getElementById('statCompleted').textContent=completed;
+  document.getElementById('statAverage').textContent=`${avg}%`;
+  document.getElementById('statMistakes').textContent=mistakes;
+  document.getElementById('statVocabulary').textContent=mastered;
+
+  document.getElementById('homeProgress').style.width=`${overall}%`;
+  document.getElementById('homeProgressText').textContent=`${overall}% completed`;
+
+  document.getElementById('progressCompleted').textContent=completed;
+  document.getElementById('progressAverage').textContent=`${avg}%`;
+  document.getElementById('progressConv').textContent=state.conversationPractised||0;
+
+  const best=state.testHistory.length
+    ? Math.max(...state.testHistory.map(x=>x.percent))
+    : null;
+  document.getElementById('progressBestTest').textContent=best===null?'—':`${best}%`;
+
+  document.getElementById('mistakeCountBadge').textContent=
+    `${mistakes} mistake${mistakes===1?'':'s'}`;
+
+  document.getElementById('vocabMasteredBadge').textContent=
+    `${mastered} mastered`;
+}
+
+function renderHome(){
+  const list=document.getElementById('homeActivityList');
+  list.innerHTML=Object.keys(ACTIVITY_LABELS).map(key=>{
+    let value=state.scores[key] ?? (state.completed[key]?100:0);
+    if(key==='conversation' && state.conversationPractised>0) value=100;
+    if(key==='vocabulary' && state.vocabulary.mastered.length>0){
+      value=Math.round((state.vocabulary.mastered.length/vocabulary.length)*100);
+    }
+    return `
+      <div class="activity-row">
+        <div class="activity-name">${esc(ACTIVITY_LABELS[key])}</div>
+        <div class="progress"><div class="progress-bar" style="width:${value}%"></div></div>
+        <div class="activity-percent">${value}%</div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* =========================================================
+   GETTING READY
+========================================================= */
+
+const rankData = {
+  Restaurant:['location','prices','service','atmosphere','other'],
+  'Language School':['location','staff','courses','popularity','other'],
+  Hotel:['price','rooms','location','facilities','other']
+};
+
+function renderRankings(){
+  const saved=state.rankings || rankData;
+  document.getElementById('rankGrid').innerHTML=Object.keys(saved).map(category=>{
+    const items=[...saved[category]];
+    return `
+      <div class="rank-col">
+        <h3>${esc(category)}</h3>
+        <div class="rank-items" data-category="${esc(category)}">
+          ${items.map((item,index)=>`
+            <div class="rank-item" draggable="true" data-item="${esc(item)}" data-index="${index}">
+              <div class="rank-num">${index+1}</div>
+              <div>${esc(item)}</div>
+              <div class="rank-controls">
+                <button class="icon-btn rank-up" title="Move up">↑</button>
+                <button class="icon-btn rank-down" title="Move down">↓</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.querySelectorAll('.rank-up').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('.rank-item');
+      const list=item.parentElement;
+      const prev=item.previousElementSibling;
+      if(prev) list.insertBefore(item,prev);
+      updateRankNumbers();
+    });
+  });
+
+  document.querySelectorAll('.rank-down').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('.rank-item');
+      const list=item.parentElement;
+      const next=item.nextElementSibling;
+      if(next) list.insertBefore(next,item);
+      updateRankNumbers();
+    });
+  });
+
+  let dragged=null;
+  document.querySelectorAll('.rank-item').forEach(item=>{
+    item.addEventListener('dragstart',()=>dragged=item);
+    item.addEventListener('dragover',e=>e.preventDefault());
+    item.addEventListener('drop',e=>{
+      e.preventDefault();
+      if(!dragged || dragged===item) return;
+      if(dragged.parentElement===item.parentElement){
+        const rect=item.getBoundingClientRect();
+        const before=e.clientY<rect.top+rect.height/2;
+        item.parentElement.insertBefore(dragged,before?item:item.nextSibling);
+        updateRankNumbers();
+      }
+    });
+  });
+
+  if(state.rankings){
+    const result=document.getElementById('rankingResult');
+    result.classList.add('show');
+    result.innerHTML='<strong>Your rankings are saved.</strong> There is no fixed answer because this task is personal.';
+  }
+}
+
+function updateRankNumbers(){
+  document.querySelectorAll('.rank-items').forEach(list=>{
+    [...list.children].forEach((item,index)=>{
+      item.dataset.index=index;
+      item.querySelector('.rank-num').textContent=index+1;
+    });
+  });
+}
+
+function collectRankings(){
+  const output={};
+  document.querySelectorAll('.rank-items').forEach(list=>{
+    const category=list.dataset.category;
+    output[category]=[...list.children].map(item=>item.dataset.item);
+  });
+  return output;
+}
+
+document.getElementById('saveRankingsBtn').addEventListener('click',()=>{
+  state.rankings=collectRankings();
+  state.completed.gettingready=true;
+  saveState();
+  const result=document.getElementById('rankingResult');
+  result.className='result-box success show';
+  result.innerHTML='<strong>Saved.</strong> Your personal rankings have been stored.';
+  toast('Rankings saved.');
+  updateDashboard();
+});
+
+document.getElementById('resetRankingsBtn').addEventListener('click',()=>{
+  confirmModal(
+    'Reset rankings',
+    'This will restore the original order.',
+    ()=>{
+      state.rankings=null;
+      state.completed.gettingready=false;
+      saveState();
+      renderRankings();
+      document.getElementById('rankingResult').className='result-box';
+      updateDashboard();
+    }
+  );
+});
+
+/* =========================================================
+   GENERIC QUIZ
+========================================================= */
+
+function renderQuiz(containerId,data,key){
+  const container=document.getElementById(containerId);
+  let checked={};
+
+  container.innerHTML=`
+    <div class="quiz-list">
+      ${data.map((q,i)=>`
+        <div class="quiz-item" data-q="${i}">
+          <div class="quiz-question">${i+1}. ${esc(q.question)}</div>
+          <div class="option-list">
+            ${q.options.map((opt,j)=>`
+              <label class="option" data-option="${j}">
+                <input type="radio" name="${key}-${i}" value="${j}">
+                <span><strong>${String.fromCharCode(65+j)}.</strong> ${esc(opt)}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div class="feedback" id="${key}-feedback-${i}"></div>
+          <div class="evidence" id="${key}-evidence-${i}"></div>
+          <div class="quiz-actions">
+            <button class="btn check-one" data-index="${i}">Check</button>
+            <button class="btn reveal-one" data-index="${i}">Reveal Evidence</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="quiz-footer">
+      <span class="score-badge" id="${key}-score">0 / ${data.length} checked</span>
+      <div class="btn-group" style="margin:0">
+        <button class="btn primary" id="${key}-finish">Finish & Record Score</button>
+        <button class="btn" id="${key}-reset">Reset</button>
+      </div>
+    </div>
+  `;
+
+  function checkQuestion(i){
+    const item=container.querySelector(`.quiz-item[data-q="${i}"]`);
+    const selected=item.querySelector(`input[name="${key}-${i}"]:checked`);
+    if(!selected){
+      toast('Please select an answer first.');
+      return;
+    }
+
+    const selectedValue=Number(selected.value);
+    const correct=qAnswer(data[i]);
+    checked[i]=selectedValue===correct;
+
+    item.querySelectorAll('.option').forEach((opt,j)=>{
+      opt.classList.remove('correct','incorrect');
+      if(j===correct) opt.classList.add('correct');
+      if(j===selectedValue && selectedValue!==correct) opt.classList.add('incorrect');
+    });
+
+    const feedback=item.querySelector('.feedback');
+    feedback.classList.add('show');
+
+    if(selectedValue===correct){
+      feedback.className='feedback correct show';
+      feedback.textContent='Correct.';
+    }else{
+      feedback.className='feedback incorrect show';
+      feedback.textContent=`Incorrect. Correct answer: ${String.fromCharCode(65+correct)}. ${data[i].options[correct]}`;
+      recordMistake({
+        id:`${key}-${data[i].id}`,
+        type:'multiple-choice',
+        section:key,
+        question:data[i].question,
+        user:data[i].options[selectedValue],
+        correct:data[i].options[correct],
+        evidence:data[i].evidence
+      });
+    }
+
+    document.getElementById(`${key}-score`).textContent=
+      `${Object.keys(checked).length} / ${data.length} checked`;
+  }
+
+  container.querySelectorAll('.check-one').forEach(btn=>{
+    btn.addEventListener('click',()=>checkQuestion(Number(btn.dataset.index)));
+  });
+
+  container.querySelectorAll('.reveal-one').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const i=Number(btn.dataset.index);
+      const evidence=document.getElementById(`${key}-evidence-${i}`);
+      evidence.classList.add('show');
+      evidence.textContent=data[i].evidence;
+    });
+  });
+
+  document.getElementById(`${key}-finish`).addEventListener('click',()=>{
+    const checkedCount=Object.keys(checked).length;
+    if(checkedCount<data.length){
+      toast(`Check all ${data.length} questions before finishing.`);
+      return;
+    }
+    const score=Object.values(checked).filter(Boolean).length;
+    recordScore(key,score,data.length);
+
+    let box=container.querySelector('.result-box');
+    if(!box){
+      box=document.createElement('div');
+      box.className='result-box';
+      container.appendChild(box);
+    }
+    box.className=`result-box ${score>=Math.ceil(data.length*.7)?'success':'warning'} show`;
+    box.innerHTML=`<strong>Score: ${score}/${data.length} (${Math.round(score/data.length*100)}%)</strong>`;
+    toast(`Score recorded: ${score}/${data.length}`);
+  });
+
+  document.getElementById(`${key}-reset`).addEventListener('click',()=>{
+    renderQuiz(containerId,data,key);
+  });
+}
+
+function qAnswer(q){ return q.answer; }
+
+/* =========================================================
+   LISTENING 2 TASK 1
+========================================================= */
+
+function renderL2Task1(){
+  const container=document.getElementById('listening2task1');
+  container.innerHTML=`
+    <div class="quiz-list">
+      ${listening2Task1.map((q,i)=>`
+        <div class="quiz-item" data-index="${i}">
+          <div class="quiz-question">${i+1}. ${esc(q.conversation)}</div>
+          <div class="option-list">
+            ${l2Businesses.map((b,j)=>`
+              <label class="option">
+                <input type="radio" name="l2t1-${i}" value="${esc(b)}">
+                <span>${esc(b)}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div class="feedback"></div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="quiz-footer">
+      <span class="score-badge" id="l2t1-score">0 / ${listening2Task1.length} checked</span>
+      <div class="btn-group" style="margin:0">
+        <button class="btn primary" id="l2t1-check">Check All</button>
+        <button class="btn" id="l2t1-reset">Reset</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('l2t1-check').addEventListener('click',()=>{
+    let score=0;
+    let checked=0;
+
+    listening2Task1.forEach((q,i)=>{
+      const item=container.querySelector(`.quiz-item[data-index="${i}"]`);
+      const selected=item.querySelector(`input[name="l2t1-${i}"]:checked`);
+      const feedback=item.querySelector('.feedback');
+
+      item.querySelectorAll('.option').forEach(el=>{
+        el.classList.remove('correct','incorrect');
+      });
+
+      if(!selected){
+        feedback.className='feedback incorrect show';
+        feedback.textContent='Please choose an answer.';
+        return;
+      }
+
+      checked++;
+      const correct=q.answer;
+      const correctEl=[...item.querySelectorAll('.option')].find(el=>
+        el.textContent.trim()===correct
+      );
+      if(correctEl) correctEl.classList.add('correct');
+
+      if(selected.value===correct){
+        score++;
+        feedback.className='feedback correct show';
+        feedback.textContent='Correct.';
+      }else{
+        const selectedEl=selected.closest('.option');
+        selectedEl.classList.add('incorrect');
+        feedback.className='feedback incorrect show';
+        feedback.textContent=`Incorrect. Correct answer: ${correct}`;
+        recordMistake({
+          id:q.id,
+          type:'matching',
+          section:'listening2',
+          question:q.conversation,
+          user:selected.value,
+          correct,
+          evidence:'Match each conversation with the business described in the textbook audio.'
+        });
+      }
+    });
+
+    document.getElementById('l2t1-score').textContent=`${checked} / ${listening2Task1.length} checked`;
+
+    if(checked===listening2Task1.length){
+      recordScore('listening2-task1',score,listening2Task1.length);
+      updateListening2Overall();
+      toast(`Listening 2 Task 1: ${score}/${listening2Task1.length}`);
+    }
+  });
+
+  document.getElementById('l2t1-reset').addEventListener('click',renderL2Task1);
+}
+
+/* =========================================================
+   LISTENING 2 TASK 2
+========================================================= */
+
+function updateListening2Overall(){
+  const a=state.scores['listening2-task1'];
+  const b=state.scores['listening2-task2'];
+  if(a!==undefined && b!==undefined){
+    state.scores.listening2=Math.round((a+b)/2);
+    state.completed.listening2=true;
+    saveState();
+    updateDashboard();
+  }
+}
+
+function renderL2Task2(){
+  renderQuiz('listening2task2',listening2Task2,'listening2-task2');
+}
+
+/* =========================================================
+   TAG QUESTIONS
+========================================================= */
+
+function renderTags(){
+  const container=document.getElementById('tagPractice');
+  const tagOptions=[
+    'didn’t you?','isn’t she?','isn’t he?','aren’t we?',
+    'did you?','doesn’t she?','aren’t he?','are we?'
+  ];
+
+  container.innerHTML=tagData.map((q,i)=>`
+    <div class="tag-sentence" data-index="${i}">
+      <strong>${i+1}.</strong> ${esc(q.text)}
+      <select class="tag-select">
+        <option value="">Choose...</option>
+        ${[q.answer,...tagOptions.filter(x=>x!==q.answer)].map(x=>`
+          <option value="${esc(x)}">${esc(x)}</option>
+        `).join('')}
+      </select>
+    </div>
+  `).join('');
+}
+
+document.getElementById('checkTagsBtn').addEventListener('click',()=>{
+  let score=0;
+  tagData.forEach((q,i)=>{
+    const select=document.querySelector(`.tag-sentence[data-index="${i}"] .tag-select`);
+    if(select.value===q.answer) score++;
+  });
+
+  const result=document.getElementById('tagResult');
+  result.className=`result-box ${score===tagData.length?'success':'warning'} show`;
+  result.innerHTML=`<strong>Score: ${score}/${tagData.length} (${Math.round(score/tagData.length*100)}%)</strong>`;
+
+  if(score<tagData.length){
+    tagData.forEach((q,i)=>{
+      const select=document.querySelector(`.tag-sentence[data-index="${i}"] .tag-select`);
+      if(select.value && select.value!==q.answer){
+        recordMistake({
+          id:`tag-${i}`,
+          type:'pronunciation',
+          section:'pronunciation',
+          question:q.text,
+          user:select.value,
+          correct:q.answer,
+          evidence:'Listen to CD 1-10 and notice the correct tag question.'
+        });
+      }
+    });
+  }
+
+  recordScore('pronunciation-tags',score,tagData.length);
+  updatePronunciationOverall();
+});
+
+document.getElementById('resetTagsBtn').addEventListener('click',()=>{
+  renderTags();
+  document.getElementById('tagResult').className='result-box';
+});
+
+/* =========================================================
+   STRESS
+========================================================= */
+
+function renderStress(){
+  const container=document.getElementById('stressPractice');
+  container.innerHTML=stressData.map((line,i)=>{
+    const words=line.text.replace(/[.,!?]/g,'').split(' ');
+    return `
+      <div class="stress-line" data-index="${i}">
+        <strong>${i+1}.</strong>
+        ${words.map((w,j)=>`
+          <button class="stress-word" data-word="${esc(w.toLowerCase())}" data-pos="${j}">
+            ${esc(w)}
+          </button>
+        `).join(' ')}
+      </div>
+    `;
+  }).join('');
+
+  container.querySelectorAll('.stress-word').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('selected');
+    });
+  });
+}
+
+document.getElementById('checkStressBtn').addEventListener('click',()=>{
+  let score=0;
+
+  stressData.forEach((line,i)=>{
+    const row=document.querySelector(`.stress-line[data-index="${i}"]`);
+    const selected=[...row.querySelectorAll('.stress-word.selected')].map(x=>x.dataset.word);
+    const targets=line.targets.map(x=>x.toLowerCase());
+
+    row.querySelectorAll('.stress-word').forEach(btn=>{
+      btn.classList.remove('correct','incorrect');
+      if(targets.includes(btn.dataset.word)) btn.classList.add('correct');
+      if(btn.classList.contains('selected') && !targets.includes(btn.dataset.word)){
+        btn.classList.add('incorrect');
+      }
+    });
+
+    const exact=selected.length===targets.length &&
+      targets.every(t=>selected.includes(t));
+
+    if(exact){
+      score++;
+    }else{
+      recordMistake({
+        id:`stress-${i}`,
+        type:'stress',
+        section:'pronunciation',
+        question:line.text,
+        user:selected.join(' '),
+        correct:targets.join(' '),
+        evidence:'Listen to CD 1-15 and focus on the strongly stressed words/chunks.'
+      });
+    }
+  });
+
+  const result=document.getElementById('stressResult');
+  result.className=`result-box ${score===stressData.length?'success':'warning'} show`;
+  result.innerHTML=`<strong>Score: ${score}/${stressData.length} (${Math.round(score/stressData.length*100)}%)</strong>`;
+
+  recordScore('pronunciation-stress',score,stressData.length);
+  updatePronunciationOverall();
+});
+
+document.getElementById('resetStressBtn').addEventListener('click',()=>{
+  renderStress();
+  document.getElementById('stressResult').className='result-box';
+});
+
+function updatePronunciationOverall(){
+  const a=state.scores['pronunciation-tags'];
+  const b=state.scores['pronunciation-stress'];
+  if(a!==undefined && b!==undefined){
+    state.scores.pronunciation=Math.round((a+b)/2);
+    state.completed.pronunciation=true;
+    saveState();
+    updateDashboard();
+  }
+}
+
+/* =========================================================
+   DICTATION
+========================================================= */
+
+function renderDictation(){
+  document.getElementById('dict1').innerHTML=`
+    <div class="dialogue">
+      <div class="dialogue-line"><strong>A:</strong> Do you want to play soccer this Saturday?</div>
+      <div class="dialogue-line"><strong>B:</strong> It's supposed to rain this weekend,
+        <input class="blank-input dict1-input" data-index="0" placeholder="tag question">?
+      </div>
+      <div class="dialogue-line"><strong>A:</strong> Oh, I didn't know that. Well, then what do you want to do?</div>
+      <div class="dialogue-line"><strong>B:</strong> We could go to a movie? We could go see the new action movie.</div>
+      <div class="dialogue-line"><strong>A:</strong> You saw that movie last weekend,
+        <input class="blank-input dict1-input" data-index="1" placeholder="tag question">?
+      </div>
+      <div class="dialogue-line"><strong>B:</strong> Yeah, but I'd like to see it again. But you don't like action movies,
+        <input class="blank-input dict1-input" data-index="2" placeholder="tag question">?
+      </div>
+      <div class="dialogue-line"><strong>A:</strong> Not really.</div>
+      <div class="dialogue-line"><strong>B:</strong> We could go see that new comedy at Star Cinema!</div>
+    </div>
+  `;
+
+  document.getElementById('dict2').innerHTML=`
+    <div class="dialogue">
+      <div class="dialogue-line"><strong>A:</strong> Do you want to go to the Century Fashions sale on Saturday?</div>
+      <div class="dialogue-line"><strong>B:</strong> I'd like to, but the salespeople there are
+        <input class="blank-input dict2-input" data-index="0" placeholder="not very...">
+      </div>
+      <div class="dialogue-line"><strong>A:</strong> I know what you mean. They're not very friendly, either.</div>
+      <div class="dialogue-line"><strong>B:</strong> Yeah, and some of the clothes are nice, but some of them are
+        <input class="blank-input dict2-input" data-index="1" placeholder="really...">
+      </div>
+      <div class="dialogue-line"><strong>A:</strong> That's true. I bought a sweater there last winter, and it
+        <input class="blank-input dict2-input" data-index="2" placeholder="two words">
+        after I wore it twice.
+      </div>
+      <div class="dialogue-line"><strong>B:</strong> Also, it
+        <input class="blank-input dict2-input" data-index="3" placeholder="three words">
+        pay for things. The lines are always really long.
+      </div>
+      <div class="dialogue-line"><strong>A:</strong> Then again, I did get my
+        <input class="blank-input dict2-input" data-index="4" placeholder="two words">
+        there!
+      </div>
+    </div>
+  `;
+}
+
+function checkDictation(inputsSelector,data,resultId,key){
+  const inputs=[...document.querySelectorAll(inputsSelector)];
+  let score=0;
+
+  inputs.forEach((input,i)=>{
+    const correct=data[i].answer;
+    const ok=normalize(input.value)===normalize(correct);
+
+    input.classList.remove('correct','incorrect');
+    input.classList.add(ok?'correct':'incorrect');
+
+    if(ok){
+      score++;
+    }else{
+      recordMistake({
+        id:`${key}-${i}`,
+        type:'dictation',
+        section:'dictation',
+        question:data[i].before||data[i].sentence,
+        user:input.value,
+        correct,
+        evidence:'Listen again and repeat the phrase from the audio.'
+      });
+    }
+  });
+
+  const result=document.getElementById(resultId);
+  result.className=`result-box ${score===data.length?'success':'warning'} show`;
+  result.innerHTML=`<strong>Score: ${score}/${data.length} (${Math.round(score/data.length*100)}%)</strong>`;
+
+  return score;
+}
+
+document.getElementById('checkDict1Btn').addEventListener('click',()=>{
+  const score=checkDictation('.dict1-input',dict1Data,'dict1Result','dict1');
+  recordScore('dictation-1',score,dict1Data.length);
+  updateDictationOverall();
+});
+
+document.getElementById('resetDict1Btn').addEventListener('click',()=>{
+  document.querySelectorAll('.dict1-input').forEach(i=>{
+    i.value='';
+    i.classList.remove('correct','incorrect');
+  });
+  document.getElementById('dict1Result').className='result-box';
+});
+
+document.getElementById('checkDict2Btn').addEventListener('click',()=>{
+  const score=checkDictation('.dict2-input',dict2Data,'dict2Result','dict2');
+  recordScore('dictation-2',score,dict2Data.length);
+  updateDictationOverall();
+});
+
+document.getElementById('resetDict2Btn').addEventListener('click',()=>{
+  document.querySelectorAll('.dict2-input').forEach(i=>{
+    i.value='';
+    i.classList.remove('correct','incorrect');
+  });
+  document.getElementById('dict2Result').className='result-box';
+});
+
+function updateDictationOverall(){
+  const a=state.scores['dictation-1'];
+  const b=state.scores['dictation-2'];
+  if(a!==undefined && b!==undefined){
+    state.scores.dictation=Math.round((a+b)/2);
+    state.completed.dictation=true;
+    saveState();
+    updateDashboard();
+  }
+}
+
+/* =========================================================
+   CONVERSATION
+========================================================= */
+
+let currentConversation=0;
+let convSeconds=60;
+let convInterval=null;
+
+function renderConversation(){
+  const b=convBusinesses[currentConversation];
+  document.getElementById('convBusiness').textContent=b.name;
+  document.getElementById('convPrompt').textContent=
+    `Think of a ${b.name.toLowerCase()} you know. Discuss two things you like and two things you don't like.`;
+
+  document.getElementById('convLikes').innerHTML=b.likes.map(x=>`<span class="badge success" style="margin:4px">${esc(x)}</span>`).join('');
+  document.getElementById('convDislikes').innerHTML=b.dislikes.map(x=>`<span class="badge" style="margin:4px">${esc(x)}</span>`).join('');
+
+  resetConvTimer();
+}
+
+function resetConvTimer(){
+  clearInterval(convInterval);
+  convInterval=null;
+  convSeconds=60;
+  updateConvTimer();
+}
+
+function updateConvTimer(){
+  const min=String(Math.floor(convSeconds/60)).padStart(2,'0');
+  const sec=String(convSeconds%60).padStart(2,'0');
+  document.getElementById('convTimer').textContent=`${min}:${sec}`;
+}
+
+function startConversation(seconds){
+  clearInterval(convInterval);
+  convSeconds=seconds;
+  updateConvTimer();
+  convInterval=setInterval(()=>{
+    convSeconds--;
+    updateConvTimer();
+    if(convSeconds<=0){
+      clearInterval(convInterval);
+      convInterval=null;
+      toast('Conversation timer finished.');
+    }
+  },1000);
+}
+
+document.getElementById('startConvBtn').addEventListener('click',()=>startConversation(60));
+document.getElementById('startConv30Btn').addEventListener('click',()=>startConversation(30));
+document.getElementById('stopConvBtn').addEventListener('click',()=>{
+  clearInterval(convInterval);
+  convInterval=null;
+});
+document.getElementById('newConvBtn').addEventListener('click',()=>{
+  currentConversation=(currentConversation+1)%convBusinesses.length;
+  renderConversation();
+});
+document.getElementById('markConvBtn').addEventListener('click',()=>{
+  state.conversationPractised=(state.conversationPractised||0)+1;
+  state.completed.conversation=true;
+  saveState();
+  updateDashboard();
+  document.getElementById('convResult').className='result-box success show';
+  document.getElementById('convResult').innerHTML=
+    `Practised successfully. Total speaking practices: <strong>${state.conversationPractised}</strong>.`;
+});
+
+/* =========================================================
+   VOCABULARY ENGINE
+========================================================= */
+
+let vocabMode='flashcards';
+let vocabIndex=0;
+let flashFlipped=false;
+let vocabQuestion=null;
+let vocabMatching={left:null,right:null,pairs:{}};
+
+const vocabModes=[
+  ['flashcards','Flashcards'],
+  ['mc','Multiple Choice'],
+  ['matching','Matching'],
+  ['envi','English → Vietnamese'],
+  ['vien','Vietnamese → English'],
+  ['blank','Fill in the Blank']
+];
+
+function renderVocabulary(){
+  const tabs=document.getElementById('vocabTabs');
+  tabs.innerHTML=vocabModes.map(([id,label])=>
+    `<button class="vocab-tab ${id===vocabMode?'active':''}" data-mode="${id}">${label}</button>`
+  ).join('');
+
+  tabs.querySelectorAll('.vocab-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      vocabMode=btn.dataset.mode;
+      vocabIndex=0;
+      flashFlipped=false;
+      vocabQuestion=null;
+      vocabMatching={left:null,right:null,pairs:{}};
+      renderVocabulary();
+    });
+  });
+
+  document.getElementById('vocabContent').innerHTML='';
+  if(vocabMode==='flashcards') renderFlashcards();
+  if(vocabMode==='mc') renderVocabMC();
+  if(vocabMode==='matching') renderVocabMatching();
+  if(vocabMode==='envi') renderVocabChoice('envi');
+  if(vocabMode==='vien') renderVocabChoice('vien');
+  if(vocabMode==='blank') renderVocabBlank();
+
+  document.getElementById('vocabMasteredBadge').textContent=
+    `${state.vocabulary.mastered.length} mastered`;
+}
+
+function toggleMastered(word){
+  const index=state.vocabulary.mastered.indexOf(word);
+  if(index===-1){
+    state.vocabulary.mastered.push(word);
+  }else{
+    state.vocabulary.mastered.splice(index,1);
+  }
+  saveState();
+  renderVocabulary();
+  updateDashboard();
+}
+
+function renderFlashcards(){
+  const item=vocabulary[vocabIndex];
+  const mastered=state.vocabulary.mastered.includes(item.word);
+
+  document.getElementById('vocabContent').innerHTML=`
+    <div class="card">
+      <div class="flashcard" id="flashcard">
+        ${flashFlipped
+          ? `<div>
+              <div class="meaning">${esc(item.vi)}</div>
+              <div class="ipa">${esc(item.ipa)} • ${esc(item.pos)}</div>
+              <div class="example">${esc(item.example)}</div>
+            </div>`
+          : `<div>
+              <div class="word">${esc(item.word)}</div>
+              <div class="ipa">${esc(item.ipa)} • ${esc(item.pos)}</div>
+            </div>`
+        }
+      </div>
+      <div class="vocab-meta">
+        Card ${vocabIndex+1} / ${vocabulary.length}
+      </div>
+      <div class="btn-group">
+        <button class="btn" id="flashPrev">← Previous</button>
+        <button class="btn primary" id="flashFlip">Flip Card</button>
+        <button class="btn" id="flashNext">Next →</button>
+        <button class="btn ${mastered?'success':'warning'}" id="flashMaster">
+          ${mastered?'✓ Mastered':'Mark as Mastered'}
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('flashPrev').addEventListener('click',()=>{
+    vocabIndex=(vocabIndex-1+vocabulary.length)%vocabulary.length;
+    flashFlipped=false;
+    renderVocabulary();
+  });
+
+  document.getElementById('flashNext').addEventListener('click',()=>{
+    vocabIndex=(vocabIndex+1)%vocabulary.length;
+    flashFlipped=false;
+    renderVocabulary();
+  });
+
+  document.getElementById('flashFlip').addEventListener('click',()=>{
+    flashFlipped=!flashFlipped;
+    renderVocabulary();
+  });
+
+  document.getElementById('flashMaster').addEventListener('click',()=>{
+    toggleMastered(item.word);
+  });
+
+  document.getElementById('flashcard').addEventListener('click',()=>{
+    flashFlipped=!flashFlipped;
+    renderVocabulary();
+  });
+}
+
+function randomOptions(correctIndex,mode='vi'){
+  const arr=[vocabulary[correctIndex]];
+  const pool=vocabulary.filter((_,i)=>i!==correctIndex);
+
+  while(arr.length<4){
+    const candidate=pool[Math.floor(Math.random()*pool.length)];
+    if(!arr.includes(candidate)) arr.push(candidate);
+  }
+
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+
+  return arr;
+}
+
+function getVocabQuestion(){
+  const index=Math.floor(Math.random()*vocabulary.length);
+  const correct=vocabulary[index];
+  const opts=randomOptions(index);
+  return {correct,opts};
+}
+
+function renderVocabMC(){
+  if(!vocabQuestion) vocabQuestion=getVocabQuestion();
+
+  const q=vocabQuestion;
+  document.getElementById('vocabContent').innerHTML=`
+    <div class="card">
+      <span class="badge primary">Choose the correct meaning</span>
+      <div style="font-size:30px;font-weight:800;margin:18px 0 6px">${esc(q.correct.word)}</div>
+      <div class="small muted">${esc(q.correct.ipa)} • ${esc(q.correct.pos)}</div>
+      <div class="option-list" style="margin-top:18px">
+        ${q.opts.map((o,i)=>`
+          <label class="option">
+            <input type="radio" name="vocab-mc" value="${esc(o.word)}">
+            <span>${esc(o.vi)}</span>
+          </label>
+        `).join('')}
+      </div>
+      <div class="btn-group">
+        <button class="btn primary" id="vocabMCCheck">Check</button>
+        <button class="btn" id="vocabMCNext">Next</button>
+      </div>
+      <div class="result-box" id="vocabMCResult"></div>
+    </div>
+  `;
+
+  document.getElementById('vocabMCCheck').addEventListener('click',()=>{
+    const selected=document.querySelector('input[name="vocab-mc"]:checked');
+    if(!selected){
+      toast('Choose an answer first.');
+      return;
+    }
+    const ok=selected.value===q.correct.word;
+    const result=document.getElementById('vocabMCResult');
+
+    if(ok){
+      state.vocabulary.correct++;
+      result.className='result-box success show';
+      result.innerHTML='<strong>Correct.</strong>';
+    }else{
+      state.vocabulary.wrong++;
+      result.className='result-box warning show';
+      result.innerHTML=`Incorrect. Correct answer: <strong>${esc(q.correct.vi)}</strong>`;
+      recordMistake({
+        id:`vocab-mc-${q.correct.word}`,
+        type:'vocabulary',
+        section:'vocabulary',
+        question:q.correct.word,
+        user:selected.value,
+        correct:q.correct.word,
+        evidence:q.correct.example
+      });
+    }
+    saveState();
+    updateDashboard();
+  });
+
+  document.getElementById('vocabMCNext').addEventListener('click',()=>{
+    vocabQuestion=getVocabQuestion();
+    renderVocabulary();
+  });
+}
+
+function renderVocabChoice(mode){
+  if(!vocabQuestion) vocabQuestion=getVocabQuestion();
+
+  const q=vocabQuestion;
+  const prompt=mode==='envi'
+    ? q.correct.word
+    : q.correct.vi;
+
+  const options=mode==='envi'
+    ? q.opts.map(x=>x.vi)
+    : q.opts.map(x=>x.word);
+
+  document.getElementById('vocabContent').innerHTML=`
+    <div class="card">
+      <span class="badge primary">${mode==='envi'?'English → Vietnamese':'Vietnamese → English'}</span>
+      <div style="font-size:28px;font-weight:800;margin:18px 0 16px">${esc(prompt)}</div>
+      <div class="option-list">
+        ${options.map((o,i)=>`
+          <label class="option">
+            <input type="radio" name="vocab-choice" value="${esc(o)}">
+            <span>${esc(o)}</span>
+          </label>
+        `).join('')}
+      </div>
+      <div class="btn-group">
+        <button class="btn primary" id="vocabChoiceCheck">Check</button>
+        <button class="btn" id="vocabChoiceNext">Next</button>
+      </div>
+      <div class="result-box" id="vocabChoiceResult"></div>
+    </div>
+  `;
+
+  document.getElementById('vocabChoiceCheck').addEventListener('click',()=>{
+    const selected=document.querySelector('input[name="vocab-choice"]:checked');
+    if(!selected){
+      toast('Choose an answer first.');
+      return;
+    }
+
+    const correctValue=mode==='envi'?q.correct.vi:q.correct.word;
+    const ok=normalize(selected.value)===normalize(correctValue);
+    const result=document.getElementById('vocabChoiceResult');
+
+    if(ok){
+      state.vocabulary.correct++;
+      result.className='result-box success show';
+      result.textContent='Correct.';
+    }else{
+      state.vocabulary.wrong++;
+      result.className='result-box warning show';
+      result.innerHTML=`Incorrect. Correct answer: <strong>${esc(correctValue)}</strong>`;
+      recordMistake({
+        id:`vocab-${mode}-${q.correct.word}`,
+        type:'vocabulary',
+        section:'vocabulary',
+        question:prompt,
+        user:selected.value,
+        correct:correctValue,
+        evidence:q.correct.example
+      });
+    }
+
+    saveState();
+    updateDashboard();
+  });
+
+  document.getElementById('vocabChoiceNext').addEventListener('click',()=>{
+    vocabQuestion=getVocabQuestion();
+    renderVocabulary();
+  });
+}
+
+function renderVocabBlank(){
+  if(!vocabQuestion) vocabQuestion=getVocabQuestion();
+
+  const q=vocabQuestion;
+  const sentence=q.correct.example.replace(
+    new RegExp(`\\b${q.correct.word}\\b`,'i'),
+    '________'
+  );
+
+  document.getElementById('vocabContent').innerHTML=`
+    <div class="card">
+      <span class="badge primary">Fill in the Blank</span>
+      <div style="font-size:18px;font-weight:700;margin:18px 0">${esc(sentence)}</div>
+      <input id="vocabBlankInput" class="blank-input" style="width:100%;max-width:500px" placeholder="Type the missing word">
+      <div class="btn-group">
+        <button class="btn primary" id="vocabBlankCheck">Check</button>
+        <button class="btn" id="vocabBlankNext">Next</button>
+      </div>
+      <div class="result-box" id="vocabBlankResult"></div>
+    </div>
+  `;
+
+  document.getElementById('vocabBlankCheck').addEventListener('click',()=>{
+    const input=document.getElementById('vocabBlankInput');
+    const ok=normalize(input.value)===normalize(q.correct.word);
+    const result=document.getElementById('vocabBlankResult');
+
+    input.classList.remove('correct','incorrect');
+
+    if(ok){
+      input.classList.add('correct');
+      state.vocabulary.correct++;
+      result.className='result-box success show';
+      result.textContent='Correct.';
+    }else{
+      input.classList.add('incorrect');
+      state.vocabulary.wrong++;
+      result.className='result-box warning show';
+      result.innerHTML=`Incorrect. Correct answer: <strong>${esc(q.correct.word)}</strong>`;
+      recordMistake({
+        id:`vocab-blank-${q.correct.word}`,
+        type:'vocabulary',
+        section:'vocabulary',
+        question:q.correct.example,
+        user:input.value,
+        correct:q.correct.word,
+        evidence:q.correct.example
+      });
+    }
+
+    saveState();
+    updateDashboard();
+  });
+
+  document.getElementById('vocabBlankNext').addEventListener('click',()=>{
+    vocabQuestion=getVocabQuestion();
+    renderVocabulary();
+  });
+}
+
+function renderVocabMatching(){
+  const count=6;
+  const chosen=[...vocabulary]
+    .sort(()=>Math.random()-.5)
+    .slice(0,count);
+
+  const left=[...chosen];
+  const right=[...chosen].sort(()=>Math.random()-.5);
+
+  vocabMatching={left,right,pairs:{},selectedLeft:null,selectedRight:null};
+
+  document.getElementById('vocabContent').innerHTML=`
+    <div class="card">
+      <div class="matching-vocab">
+        <div>
+          <h3>English</h3>
+          <div class="match-column" id="vocabMatchLeft">
+            ${left.map((x,i)=>`
+              <button class="match-btn" data-id="${esc(x.word)}">${esc(x.word)}</button>
+            `).join('')}
+          </div>
+        </div>
+        <div>
+          <h3>Vietnamese</h3>
+          <div class="match-column" id="vocabMatchRight">
+            ${right.map(x=>`
+              <button class="match-btn" data-id="${esc(x.word)}">${esc(x.vi)}</button>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="match-status" id="vocabMatchStatus">Select one English word and one Vietnamese meaning.</div>
+      <div class="btn-group">
+        <button class="btn primary" id="vocabMatchReset">New Matching</button>
+      </div>
+    </div>
+  `;
+
+  let selectedLeft=null;
+  let selectedRight=null;
+  let matched=new Set();
+
+  const updateSelection=()=>{
+    document.querySelectorAll('#vocabMatchLeft .match-btn').forEach(btn=>{
+      btn.classList.toggle('selected',btn.dataset.id===selectedLeft && !matched.has(btn.dataset.id));
+    });
+    document.querySelectorAll('#vocabMatchRight .match-btn').forEach(btn=>{
+      btn.classList.toggle('selected',btn.dataset.id===selectedRight && !matched.has(btn.dataset.id));
+    });
+  };
+
+  const tryMatch=()=>{
+    if(!selectedLeft || !selectedRight) return;
+
+    if(selectedLeft===selectedRight){
+      matched.add(selectedLeft);
+      document.querySelectorAll(`[data-id="${CSS.escape(selectedLeft)}"]`).forEach(btn=>{
+        btn.classList.remove('selected');
+        btn.classList.add('matched');
+        btn.disabled=true;
+      });
+      document.getElementById('vocabMatchStatus').textContent=
+        `${matched.size}/${left.length} matched correctly.`;
+      state.vocabulary.correct++;
+      saveState();
+      if(matched.size===left.length){
+        state.completed.vocabulary=true;
+        state.scores.vocabulary=100;
+        saveState();
+        updateDashboard();
+        toast('Vocabulary matching completed.');
+      }
+    }else{
+      state.vocabulary.wrong++;
+      recordMistake({
+        id:`vocab-match-${selectedLeft}-${selectedRight}`,
+        type:'vocabulary matching',
+        section:'vocabulary',
+        question:selectedLeft,
+        user:selectedRight,
+        correct:left.find(x=>x.word===selectedLeft)?.vi || '',
+        evidence:'Match each English word with its Vietnamese meaning.'
+      });
+      document.getElementById('vocabMatchStatus').textContent='That pair is incorrect. Try again.';
+    }
+
+    selectedLeft=null;
+    selectedRight=null;
+    updateSelection();
+    saveState();
+  };
+
+  document.querySelectorAll('#vocabMatchLeft .match-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      selectedLeft=btn.dataset.id;
+      updateSelection();
+      tryMatch();
+    });
+  });
+
+  document.querySelectorAll('#vocabMatchRight .match-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      selectedRight=btn.dataset.id;
+      updateSelection();
+      tryMatch();
+    });
+  });
+
+  document.getElementById('vocabMatchReset').addEventListener('click',renderVocabMatching);
+}
+
+/* =========================================================
+   REVIEW MISTAKES
+========================================================= */
+
+function renderReview(){
+  const content=document.getElementById('reviewContent');
+
+  if(!state.mistakes.length){
+    content.innerHTML='<div class="empty">No saved mistakes yet.</div>';
+    document.getElementById('mistakePracticeCard').style.display='none';
+    return;
+  }
+
+  content.innerHTML=state.mistakes.map((m,i)=>`
+    <div class="review-item">
+      <div class="meta">${esc(m.section||'General')} • ${esc(m.type||'Practice')}</div>
+      <strong>${i+1}. ${esc(m.question)}</strong>
+      <div style="margin-top:8px"><span class="badge">Your answer: ${esc(m.user||'—')}</span></div>
+      <div class="correct-text">Correct: <strong>${esc(m.correct||'—')}</strong></div>
+      ${m.evidence?`<div class="small muted" style="margin-top:7px">${esc(m.evidence)}</div>`:''}
+      <div class="btn-group">
+        <button class="btn danger remove-mistake" data-id="${esc(m.id)}">Remove</button>
+      </div>
+    </div>
+  `).join('');
+
+  content.querySelectorAll('.remove-mistake').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      removeMistake(btn.dataset.id);
+      renderReview();
+      updateDashboard();
+    });
+  });
+}
+
+document.getElementById('clearMistakesBtn').addEventListener('click',()=>{
+  if(!state.mistakes.length){
+    toast('There are no mistakes to clear.');
+    return;
+  }
+  confirmModal(
+    'Clear mistakes',
+    'All saved mistakes will be deleted.',
+    ()=>{
+      state.mistakes=[];
+      saveState();
+      renderReview();
+      updateDashboard();
+      toast('Mistake review cleared.');
+    }
+  );
+});
+
+document.getElementById('practiceMistakesBtn').addEventListener('click',()=>{
+  const card=document.getElementById('mistakePracticeCard');
+  const box=document.getElementById('mistakePractice');
+
+  if(!state.mistakes.length){
+    toast('No saved mistakes available.');
+    return;
+  }
+
+  card.style.display='block';
+  box.innerHTML=state.mistakes.map((m,i)=>`
+    <div class="quiz-item" data-index="${i}">
+      <div class="quiz-question">${i+1}. ${esc(m.question)}</div>
+      <div class="small muted">Choose or type the correct answer.</div>
+      <input class="blank-input mistake-input" data-index="${i}" style="width:100%;max-width:600px" placeholder="Your answer">
+      <div class="feedback"></div>
+    </div>
+  `).join('')+`
+    <div class="btn-group">
+      <button class="btn primary" id="checkMistakePractice">Check Practice</button>
+    </div>
+  `;
+
+  document.getElementById('checkMistakePractice').addEventListener('click',()=>{
+    let score=0;
+    state.mistakes.forEach((m,i)=>{
+      const input=document.querySelector(`.mistake-input[data-index="${i}"]`);
+      const feedback=input.closest('.quiz-item').querySelector('.feedback');
+      const ok=normalize(input.value)===normalize(m.correct);
+
+      input.classList.remove('correct','incorrect');
+      input.classList.add(ok?'correct':'incorrect');
+
+      if(ok){
+        score++;
+        feedback.className='feedback correct show';
+        feedback.textContent='Correct.';
+      }else{
+        feedback.className='feedback incorrect show';
+        feedback.textContent=`Correct answer: ${m.correct}`;
+      }
+    });
+
+    toast(`Mistake practice: ${score}/${state.mistakes.length}`);
+  });
+});
+
+/* =========================================================
+   TEST YOURSELF
+========================================================= */
+
+let testState={
+  questions:[],
+  answers:{},
+  seconds:1800,
+  timer:null,
+  submitted:false
+};
+
+function buildTestPool(){
+  const pool=[];
+
+  listening1Data.forEach(q=>{
+    pool.push({
+      id:`test-${q.id}`,
+      type:'mc',
+      source:'Listening 1',
+      question:q.question,
+      options:q.options,
+      answer:q.options[q.answer],
+      evidence:q.evidence
+    });
+  });
+
+  listening2Task2.forEach(q=>{
+    pool.push({
+      id:`test-${q.id}`,
+      type:'mc',
+      source:'Listening 2',
+      question:q.question,
+      options:q.options,
+      answer:q.options[q.answer],
+      evidence:q.evidence
+    });
+  });
+
+  listening3Task1.forEach(q=>{
+    pool.push({
+      id:`test-${q.id}`,
+      type:'mc',
+      source:'Listening 3',
+      question:q.question,
+      options:q.options,
+      answer:q.options[q.answer],
+      evidence:q.evidence
+    });
+  });
+
+  listening3Task2.forEach(q=>{
+    pool.push({
+      id:`test-${q.id}`,
+      type:'mc',
+      source:'Listening 3',
+      question:q.question,
+      options:q.options,
+      answer:q.options[q.answer],
+      evidence:q.evidence
+    });
+  });
+
+  dict1Data.forEach((q,i)=>{
+    pool.push({
+      id:`test-d1-${i}`,
+      type:'text',
+      source:'Dictation',
+      question:`Complete: ${q.before} ___ ${q.after}`,
+      answer:q.answer,
+      evidence:'Listen to CD 1-11.'
+    });
+  });
+
+  dict2Data.forEach((q,i)=>{
+    pool.push({
+      id:`test-d2-${i}`,
+      type:'text',
+      source:'Dictation',
+      question:`Complete: ${q.sentence} ______`,
+      answer:q.answer,
+      evidence:'Listen to CD 1-16.'
+    });
+  });
+
+  vocabulary.forEach((v,i)=>{
+    pool.push({
+      id:`test-v-${i}`,
+      type:'mc',
+      source:'Vocabulary',
+      question:`What does "${v.word}" mean?`,
+      options:buildVocabTestOptions(v),
+      answer:v.vi,
+      evidence:v.example
+    });
+  });
+
+  return pool;
+}
+
+function buildVocabTestOptions(correct){
+  const arr=[correct.vi];
+  const pool=vocabulary.filter(v=>v.word!==correct.word).map(v=>v.vi);
+
+  while(arr.length<4){
+    const item=pool[Math.floor(Math.random()*pool.length)];
+    if(!arr.includes(item)) arr.push(item);
+  }
+
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+
+  return arr;
+}
+
+function startTest(){
+  const pool=buildTestPool().sort(()=>Math.random()-.5);
+  testState.questions=pool.slice(0,20);
+  testState.answers={};
+  testState.seconds=1800;
+  testState.submitted=false;
+
+  document.getElementById('testIntro').style.display='none';
+  document.getElementById('testResult').style.display='none';
+  document.getElementById('testArea').style.display='block';
+
+  renderTest();
+  startTestTimer();
+  updateTestProgress();
+}
+
+function renderTest(){
+  const area=document.getElementById('testArea');
+
+  area.innerHTML=`
+    ${testState.questions.map((q,i)=>{
+      if(q.type==='mc'){
+        return `
+          <div class="test-question" data-index="${i}">
+            <div class="test-number">Question ${i+1} • ${esc(q.source)}</div>
+            <div class="quiz-question">${esc(q.question)}</div>
+            <div class="option-list">
+              ${q.options.map((opt,j)=>`
+                <label class="option">
+                  <input type="radio" name="test-${i}" value="${esc(opt)}">
+                  <span>${String.fromCharCode(65+j)}. ${esc(opt)}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="test-question" data-index="${i}">
+          <div class="test-number">Question ${i+1} • ${esc(q.source)}</div>
+          <div class="quiz-question">${esc(q.question)}</div>
+          <input class="blank-input test-text-input" data-index="${i}" style="width:100%;max-width:650px" placeholder="Type your answer">
+        </div>
+      `;
+    }).join('')}
+    <div class="card" style="margin-top:18px">
+      <strong>Submit your test when you have finished all 20 questions.</strong>
+      <div class="btn-group">
+        <button class="btn primary" id="submitTestBtn">Submit Test</button>
+        <button class="btn" id="restartTestBtn">Restart</button>
+      </div>
+    </div>
+  `;
+
+  area.querySelectorAll('input').forEach(input=>{
+    input.addEventListener('change',updateTestProgress);
+    input.addEventListener('input',updateTestProgress);
+  });
+
+  document.getElementById('submitTestBtn').addEventListener('click',()=>{
+    submitTest(false);
+  });
+
+  document.getElementById('restartTestBtn').addEventListener('click',()=>{
+    confirmModal(
+      'Restart test',
+      'Your current test attempt will be discarded.',
+      startTest
+    );
+  });
+}
+
+function startTestTimer(){
+  clearInterval(testState.timer);
+  updateTestTimer();
+
+  testState.timer=setInterval(()=>{
+    testState.seconds--;
+    updateTestTimer();
+
+    if(testState.seconds<=0){
+      clearInterval(testState.timer);
+      submitTest(true);
+    }
+  },1000);
+}
+
+function updateTestTimer(){
+  const min=String(Math.floor(testState.seconds/60)).padStart(2,'0');
+  const sec=String(testState.seconds%60).padStart(2,'0');
+  const el=document.getElementById('testTimer');
+  el.textContent=`${min}:${sec}`;
+  el.classList.toggle('warning',testState.seconds<=300);
+}
+
+function collectTestAnswers(){
+  testState.questions.forEach((q,i)=>{
+    if(q.type==='mc'){
+      const selected=document.querySelector(`input[name="test-${i}"]:checked`);
+      testState.answers[i]=selected?selected.value:'';
+    }else{
+      const input=document.querySelector(`.test-text-input[data-index="${i}"]`);
+      testState.answers[i]=input?input.value:'';
+    }
+  });
+}
+
+function updateTestProgress(){
+  if(!testState.questions.length){
+    document.getElementById('testProgressBar').style.width='0%';
+    document.getElementById('testProgressText').textContent='0 / 20 answered';
+    return;
+  }
+
+  collectTestAnswers();
+  const answered=Object.values(testState.answers).filter(v=>String(v).trim()!=='').length;
+  const pct=Math.round(answered/testState.questions.length*100);
+
+  document.getElementById('testProgressBar').style.width=`${pct}%`;
+  document.getElementById('testProgressText').textContent=
+    `${answered} / ${testState.questions.length} answered`;
+}
+
+function submitTest(auto=false){
+  if(testState.submitted) return;
+  collectTestAnswers();
+
+  if(!auto){
+    const answered=Object.values(testState.answers).filter(v=>String(v).trim()!=='').length;
+    if(answered<testState.questions.length){
+      confirmModal(
+        'Incomplete Test',
+        `You have answered ${answered}/${testState.questions.length}. Submit anyway?`,
+        ()=>submitTest(true)
+      );
+      return;
+    }
+  }
+
+  testState.submitted=true;
+  clearInterval(testState.timer);
+
+  let score=0;
+
+  testState.questions.forEach((q,i)=>{
+    const user=String(testState.answers[i]||'');
+    const ok=q.type==='mc'
+      ? normalize(user)===normalize(q.answer)
+      : normalize(user)===normalize(q.answer);
+
+    if(ok) score++;
+    if(!ok && user){
+      recordMistake({
+        id:`test-${q.id}`,
+        type:'test',
+        section:'test',
+        question:q.question,
+        user,
+        correct:q.answer,
+        evidence:q.evidence
+      });
+    }
+  });
+
+  const percent=Math.round(score/testState.questions.length*100);
+
+  state.testHistory.unshift({
+    date:new Date().toLocaleString('en-GB'),
+    score,
+    total:testState.questions.length,
+    percent
+  });
+
+  state.testHistory=state.testHistory.slice(0,20);
+  state.scores.test=percent;
+  state.completed.test=true;
+  saveState();
+
+  document.getElementById('testArea').style.display='none';
+  const result=document.getElementById('testResult');
+  result.style.display='block';
+  result.innerHTML=`
+    <div class="card">
+      <div class="badge ${percent>=70?'success':'primary'}">${auto?'Time expired':'Test submitted'}</div>
+      <h3 style="font-size:30px;margin-top:14px">${score}/${testState.questions.length}</h3>
+      <p class="muted">Final score: <strong>${percent}%</strong></p>
+      <div class="progress" style="margin:15px 0">
+        <div class="progress-bar" style="width:${percent}%"></div>
+      </div>
+      <p class="muted">
+        Your answers have been recorded. Incorrect answers were added to Review Mistakes when applicable.
+      </p>
+      <div class="btn-group">
+        <button class="btn primary" id="newTestBtn">New Test</button>
+        <button class="btn" id="reviewAfterTestBtn">Review Mistakes</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('newTestBtn').addEventListener('click',()=>{
+    document.getElementById('testResult').style.display='none';
+    document.getElementById('testIntro').style.display='block';
+    testState.questions=[];
+    updateTestProgress();
+  });
+
+  document.getElementById('reviewAfterTestBtn').addEventListener('click',()=>{
+    navigate('review');
+  });
+
+  updateDashboard();
+  renderProgress();
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function renderProgress(){
+  updateDashboard();
+
+  const list=document.getElementById('progressList');
+  list.innerHTML=Object.keys(ACTIVITY_LABELS).map(key=>{
+    let value=state.scores[key] ?? (state.completed[key]?100:0);
+    if(key==='conversation') value=state.conversationPractised>0?100:0;
+    if(key==='vocabulary'){
+      value=Math.round(state.vocabulary.mastered.length/vocabulary.length*100);
+    }
+
+    return `
+      <div class="activity-row">
+        <div class="activity-name">${esc(ACTIVITY_LABELS[key])}</div>
+        <div class="progress"><div class="progress-bar" style="width:${value}%"></div></div>
+        <div class="activity-percent">${value}%</div>
+      </div>
+    `;
+  }).join('');
+
+  const body=document.getElementById('testHistoryBody');
+  if(!state.testHistory.length){
+    body.innerHTML='<tr><td colspan="3" class="muted">No test attempts yet.</td></tr>';
+  }else{
+    body.innerHTML=state.testHistory.map(t=>`
+      <tr>
+        <td>${esc(t.date)}</td>
+        <td>${t.score}/${t.total}</td>
+        <td><strong>${t.percent}%</strong></td>
+      </tr>
+    `).join('');
+  }
+}
+
+/* =========================================================
+   SCRIPT TOGGLES
+========================================================= */
+
+const scripts={
+  'listening1':`1. Indian restaurant
+The food is really good, but it took too long to arrive. The service is terrible.
+
+2. Campus bookstore
+It’s convenient, but the mall is about 10% cheaper. Online, things are about 20% cheaper.
+
+3. Metropolitan Health Club
+It’s cheap, but it’s too popular. It’s often full, and you have to wait for machines.
+
+4. Honolulu hotel
+The staff are nice, but it’s too far from the restaurants and clubs.
+
+5. Little Roma
+The prices are cheap, but the waiters are slow and unfriendly.
+
+6. Brenda’s Boutique
+The clothes are good, but the service is terrible. The workers are rude.`,
+
+  'listening2':`1. Restaurant
+Interesting menu. The atmosphere is cool and there are comfortable sofas.
+
+2. Language school
+Spanish is better but expensive. The facilities are very good, including a computer lab and free Wi-Fi.
+
+3. Hair salon
+The stylists are good. The atmosphere feels like home. There is coffee, snacks and music.
+
+4. Hotel
+The atmosphere is glamorous and exciting. There are bright lights, expensive cars and beautiful rooms.
+
+5. Car repair garage
+The mechanics are great. The prices are about half those of other places.
+
+6. Clothing store
+The clothes look great and fit well. They are good quality with many styles and colours. The window displays are poorly lit.`,
+
+  'listening3':`1. Restaurant owner
+Service is the most important thing. Food is also important. The fish is fresh and the chefs are talented.
+
+2. Travel agency
+The most important thing is a good value. Convenience is also important.
+
+3. Home builder
+The most important thing is speed. Quality is also important.
+
+4. Clothing retailer
+The most important thing is displays. Good prices are also important.`
+};
+
+function addScriptPanels(){
+  const targets=[
+    ['section-listening1','listening1'],
+    ['section-listening2','listening2'],
+    ['section-listening3','listening3']
+  ];
+
+  targets.forEach(([sectionId,key])=>{
+    const section=document.getElementById(sectionId);
+    const card=section.querySelector('.card');
+
+    const button=document.createElement('button');
+    button.className='btn script-toggle';
+    button.textContent='Show Script';
+
+    const script=document.createElement('div');
+    script.className='script';
+    script.textContent=scripts[key];
+
+    button.addEventListener('click',()=>{
+      script.classList.toggle('show');
+      button.textContent=script.classList.contains('show')?'Hide Script':'Show Script';
+    });
+
+    card.appendChild(button);
+    card.appendChild(script);
+  });
+}
+
+/* =========================================================
+   AUDIO BUTTONS
+========================================================= */
+
+document.querySelectorAll('.audio-remind').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    toast('Listen to the corresponding CD audio externally. No audio is embedded in this app.');
+  });
+});
+
+/* =========================================================
+   RESET ALL
+========================================================= */
+
+document.getElementById('resetAllBtn').addEventListener('click',()=>{
+  confirmModal(
+    'Reset all progress',
+    'All Unit 3 scores, mistakes, vocabulary progress, rankings, and test history will be deleted.',
+    ()=>{
+      state=cloneDefault();
+      saveState();
+      location.reload();
+    }
+  );
+});
+
+/* =========================================================
+   HOME BUTTONS
+========================================================= */
+
+document.getElementById('continueBtn').addEventListener('click',()=>{
+  const next=[
+    'gettingready','listening1','listening2','listening3',
+    'pronunciation','dictation','conversation','vocabulary','test'
+  ].find(key=>!state.completed[key]);
+
+  navigate(next||'progress');
+});
+
+document.getElementById('goTestBtn').addEventListener('click',()=>{
+  navigate('test');
+});
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+document.getElementById('mobileMenu').addEventListener('click',()=>{
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
+/* =========================================================
+   TEST BUTTON
+========================================================= */
+
+document.getElementById('startTestBtn').addEventListener('click',startTest);
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+function init(){
+  buildNav();
+  renderRankings();
+
+  renderQuiz('quiz-listening1',listening1Data,'listening1');
+  renderL2Task1();
+  renderL2Task2();
+  renderQuiz('quiz-listening3task1',listening3Task1,'listening3-task1');
+  renderQuiz('quiz-listening3task2',listening3Task2,'listening3-task2');
+
+  renderTags();
+  renderStress();
+  renderDictation();
+  renderConversation();
+  renderVocabulary();
+  renderReview();
+  renderProgress();
+  renderHome();
+  addScriptPanels();
+  updateDashboard();
+}
+
+init();
+
+</script>
+</body>
+</html>
